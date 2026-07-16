@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://financial-integrity.local/schemas/tfii_collateral_admission_control_vectors_001.schema.json",
+  "title": "TFII Collateral Admission Control Vectors 001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact", "version", "as_of", "source_function", "test_rule", "vectors", "summary", "claim_boundary", "validation"],
+  "properties": {
+    "artifact": {"const": "TFII_Collateral_Admission_Control_Vectors_001"},
+    "version": {"type": "string"},
+    "as_of": {"type": "string", "format": "date"},
+    "source_function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "revision", "path", "execution_mode"],
+      "properties": {
+        "name": {"type": "string"},
+        "revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "path": {"type": "string"},
+        "execution_mode": {"const": "BOUNDED_PYTHON_REFERENCE_REPLAY_NOT_GENERATED_CDM_RUNTIME"}
+      }
+    },
+    "test_rule": {"type": "string", "minLength": 1},
+    "vectors": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/vector"}},
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vectors", "prechecks_complete", "prechecks_held", "eligibility_queries_run", "admission_decisions_made", "determinations", "all_execution_branches_passed"],
+      "properties": {
+        "vectors": {"const": 3},
+        "prechecks_complete": {"const": 2},
+        "prechecks_held": {"const": 1},
+        "eligibility_queries_run": {"const": 2},
+        "admission_decisions_made": {"const": 2},
+        "determinations": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["PASS", "FAIL", "UNKNOWN"],
+          "properties": {"PASS": {"const": 1}, "FAIL": {"const": 1}, "UNKNOWN": {"const": 1}}
+        },
+        "all_execution_branches_passed": {"const": true}
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["real_instrument_evaluated", "generated_cdm_runtime_executed", "legal_opinion_provided", "production_admission_authorized"],
+      "properties": {
+        "real_instrument_evaluated": {"const": false},
+        "generated_cdm_runtime_executed": {"const": false},
+        "legal_opinion_provided": {"const": false},
+        "production_admission_authorized": {"const": false}
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_valid", "deterministic_replay_passed", "pass_branch_passed", "fail_branch_passed", "unknown_branch_passed"],
+      "properties": {
+        "schema_valid": {"const": true},
+        "deterministic_replay_passed": {"const": true},
+        "pass_branch_passed": {"const": true},
+        "fail_branch_passed": {"const": true},
+        "unknown_branch_passed": {"const": true}
+      }
+    }
+  },
+  "$defs": {
+    "state": {"enum": ["PASS", "FAIL", "UNKNOWN"]},
+    "criterion": {
+      "oneOf": [
+        {"type": "object", "required": ["all"], "properties": {"all": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/criterion"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["any"], "properties": {"any": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/criterion"}}}, "additionalProperties": false},
+        {"type": "object", "required": ["not"], "properties": {"not": {"$ref": "#/$defs/criterion"}}, "additionalProperties": false},
+        {"type": "object", "required": ["field", "operation", "value"], "properties": {"field": {"type": "string"}, "operation": {"enum": ["EQUALS", "LTE", "GTE"]}, "value": {}}, "additionalProperties": false}
+      ]
+    },
+    "vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vector_id", "synthetic", "purpose", "requirement_states", "specification", "query", "output"],
+      "properties": {
+        "vector_id": {"type": "string", "pattern": "^TFII-AC-TV-[0-9]{3}$"},
+        "synthetic": {"const": true},
+        "purpose": {"type": "string"},
+        "requirement_states": {"type": "object", "minProperties": 22, "maxProperties": 22, "additionalProperties": {"$ref": "#/$defs/state"}},
+        "specification": {"type": "object", "required": ["criteria"], "properties": {"criteria": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/criterion"}}}, "additionalProperties": false},
+        "query": {"type": "object", "minProperties": 7, "additionalProperties": {"type": ["string", "number"]}},
+        "output": {
+          "type": "object",
+          "required": ["precheck_state", "cdm_query_state", "is_eligible", "determination"],
+          "properties": {
+            "precheck_state": {"enum": ["COMPLETE", "HOLD_MISSING_EVIDENCE"]},
+            "cdm_query_state": {"enum": ["RUN_REFERENCE_PARITY_REPLAY", "NOT_RUN"]},
+            "is_eligible": {"type": ["boolean", "null"]},
+            "matching_criteria_indexes": {"type": "array", "items": {"type": "integer"}},
+            "determination": {"$ref": "#/$defs/state"}
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

@@ -34,6 +34,8 @@ production questions:
 - **FINOS CDM conformance:** 17 requirements tested; overall result `PARTIAL`.
 - **CDM plus TFII Record Integrity Profile:** all 17 representability
   requirements pass across five public records without inferring private facts.
+- **Admission-control execution:** fixed vectors execute `PASS`, `FAIL` and
+  `UNKNOWN`; two bounded eligibility-reference queries run successfully.
 - **Tokenized-fund collateral admission:** five instruments held for missing
   program evidence; zero CDM eligibility queries run; result `UNKNOWN`.
 

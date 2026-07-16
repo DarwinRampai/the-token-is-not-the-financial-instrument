@@ -132,16 +132,75 @@ def validate_profile() -> str:
     return profile["summary"]["combined_profile_result"]
 
 
+def criteria_match(criteria: dict[str, Any], query: dict[str, Any]) -> bool:
+    if "all" in criteria:
+        return all(criteria_match(item, query) for item in criteria["all"])
+    if "any" in criteria:
+        return any(criteria_match(item, query) for item in criteria["any"])
+    if "not" in criteria:
+        return not criteria_match(criteria["not"], query)
+    actual = query[criteria["field"]]
+    expected = criteria["value"]
+    operation = criteria["operation"]
+    if operation == "EQUALS":
+        return actual == expected
+    if operation == "LTE":
+        return actual <= expected
+    if operation == "GTE":
+        return actual >= expected
+    raise ValueError(f"unsupported vector operation: {operation}")
+
+
+def validate_execution_vectors() -> str:
+    schema = load("tfii-collateral-admission-control-vectors-001.schema.json")
+    artifact = load("tfii-collateral-admission-control-vectors-001.json")
+    errors = schema_errors(schema, artifact)
+    outputs = []
+    for row in artifact["vectors"]:
+        states = row["requirement_states"]
+        if "UNKNOWN" in states.values():
+            expected = {
+                "precheck_state": "HOLD_MISSING_EVIDENCE",
+                "cdm_query_state": "NOT_RUN",
+                "is_eligible": None,
+                "determination": "UNKNOWN",
+            }
+        else:
+            matched = [
+                index
+                for index, criterion in enumerate(row["specification"]["criteria"])
+                if criteria_match(criterion, row["query"])
+            ]
+            eligible = bool(matched) and all(value == "PASS" for value in states.values())
+            expected = {
+                "precheck_state": "COMPLETE",
+                "cdm_query_state": "RUN_REFERENCE_PARITY_REPLAY",
+                "is_eligible": eligible,
+                "matching_criteria_indexes": matched,
+                "determination": "PASS" if eligible else "FAIL",
+            }
+        if row["output"] != expected:
+            errors.append(f"{row['vector_id']}: deterministic replay mismatch")
+        outputs.append(row["output"]["determination"])
+    if outputs != ["PASS", "FAIL", "UNKNOWN"]:
+        errors.append("execution branches must be PASS, FAIL and UNKNOWN")
+    if errors:
+        raise ValueError("; ".join(errors))
+    return "PASS"
+
+
 def main() -> int:
     try:
         conformance = validate_conformance()
         profile = validate_profile()
+        execution = validate_execution_vectors()
         control = validate_control()
     except Exception as exc:
         print(f"FAIL {exc}", file=sys.stderr)
         return 1
     print(f"PASS conformance test: {conformance}")
     print(f"PASS CDM plus TFII record-integrity profile: {profile}")
+    print(f"PASS collateral admission execution branches: {execution}")
     print(f"PASS collateral admission control: {control}")
     return 0
 
