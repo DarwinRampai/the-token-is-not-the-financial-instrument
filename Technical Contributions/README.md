@@ -1,0 +1,89 @@
+# Tokenized-Fund Record Integrity And Collateral Admission
+
+**Contributor:** Darwin Rampai, Independent Researcher  
+**Published:** 16 July 2026  
+**Source paper:** [The Token Is Not the Financial Instrument](https://doi.org/10.5281/zenodo.21399416)
+
+This directory contains two executable technical contributions.
+
+## 1. TFII-to-FINOS CDM Conformance Test 001
+
+The test asks whether the inspected FINOS Common Domain Model revision can
+natively preserve the financial distinctions in a Tokenized Financial
+Instrument Integrity record.
+
+Result:
+
+- requirements: 17;
+- PASS: 5;
+- PARTIAL: 3;
+- FAIL: 9;
+- UNKNOWN: 0; and
+- overall determination: **PARTIAL**.
+
+CDM represents the instrument, parties, transfer workflow, valuation,
+collateral criteria and lineage. The inspected revision does not natively
+preserve authoritative-record, token-role, ownership-effective-event,
+correction-authority, reconciliation, wallet-control, evidence-state, rights
+and coverage controls.
+
+`FAIL` means no native typed path was found under the published test rule. It
+does not allege that CDM is defective.
+
+## 2. TFII Tokenized-Fund Collateral Admission Control 001
+
+The control applies a fail-closed integrity precheck before a FINOS CDM
+collateral eligibility query.
+
+Public-evidence result:
+
+- instruments: 5;
+- partial architecture prechecks: 5;
+- ready for CDM eligibility query: 0;
+- held for missing evidence: 5;
+- CDM queries run: 0;
+- admission decisions made: 0; and
+- external determination: **UNKNOWN**.
+
+This does not declare any instrument eligible, ineligible, safe or unsafe. It
+shows that public token and filing evidence alone does not establish the
+program-specific evidence required for a real collateral admission decision.
+
+## Contents
+
+- [Conformance test specification](TFII-to-FINOS-CDM-Conformance-Test-001.md)
+- [Conformance result](tfii-finos-cdm-conformance-test-001.json)
+- [Conformance JSON Schema](tfii-finos-cdm-conformance-test-001.schema.json)
+- [Collateral control specification](TFII-Tokenized-Fund-Collateral-Admission-Control-001.md)
+- [Collateral control result](tfii-tokenized-fund-collateral-admission-control-001.json)
+- [Collateral control JSON Schema](tfii-tokenized-fund-collateral-admission-control-001.schema.json)
+- [Public TFII fixture](fixtures/TFII-Public-Sample-v1.0.json)
+- [Transfer-boundary fixture](fixtures/Transfer-Boundary-Classification-v1.0.json)
+- [Validator](validate.py)
+
+## Validate
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 validate.py
+```
+
+Expected output:
+
+```text
+PASS conformance test: PARTIAL
+PASS collateral admission control: UNKNOWN
+```
+
+## Claim Boundary
+
+These artifacts do not provide a legal opinion, collateral approval, risk
+score, investment recommendation, automated execution authority or endorsement
+by FINOS, GDF, ISDA or any named issuer.
+
+## Controlled Inspection
+
+A named instrument and named collateral workflow can be inspected using
+buyer-supplied or buyer-authorized program records. The controlled inspection
+is prepaid and separate from this public contribution. Contact:
+`rampaidarwin@gmail.com`.

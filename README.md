@@ -22,8 +22,22 @@ transfer model without preserving source-native authority and timing.
 - [Research paper (PDF)](The_Token_Is_Not_the_Financial_Instrument_Darwin_Rampai_2026_v1.0.pdf)
 - [Web-readable paper](docs/paper.html)
 - [Complete bounded public evidence package](The_Token_Is_Not_the_Financial_Instrument_v1.0_Public_Evidence_Package.zip)
+- [TFII technical contributions](Technical%20Contributions/README.md)
 - [Release manifest](release/v1.0/RELEASE%20MANIFEST.json)
 - [SHA-256 checksums](release/v1.0/SHA256SUMS.txt)
+
+## Technical Contributions
+
+The 16 July 2026 technical contribution applies the public TFII records to two
+production questions:
+
+- **FINOS CDM conformance:** 17 requirements tested; overall result `PARTIAL`.
+- **Tokenized-fund collateral admission:** five instruments held for missing
+  program evidence; zero CDM eligibility queries run; result `UNKNOWN`.
+
+The contribution includes JSON Schemas, machine-readable results, frozen public
+fixtures and a validator. It does not alter the frozen version 1.0 paper or
+evidence package.
 
 ## Evidence Package
 

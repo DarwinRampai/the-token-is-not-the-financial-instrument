@@ -1,0 +1,1128 @@
+{
+  "artifact": "TFII_Tokenized_Fund_Collateral_Admission_Control_001",
+  "version": "1.0.0",
+  "as_of": "2026-07-16",
+  "status": "CONTROLLED_VALIDATED",
+  "purpose": "Fail closed before a tokenized fund enters a collateral eligibility query unless its financial object, record architecture and program-specific admission evidence are established at the decision boundary.",
+  "source": {
+    "public_sample": "Technical Contributions/fixtures/TFII-Public-Sample-v1.0.json",
+    "conformance_test": "Technical Contributions/tfii-finos-cdm-conformance-test-001.json",
+    "gdf_report": "https://www.gdf.io/wp-content/uploads/2026/07/6.07.26_Unlocking-Capital-with-U.S-Tokenized-Money-Market-Funds-for-Collateral-Mobility.pdf",
+    "finos_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2"
+  },
+  "gdf_production_gap": {
+    "sandbox_assumptions": [
+      "test assets only",
+      "no real fund interests transferred",
+      "no legal obligations created",
+      "one dollar price per token unit",
+      "standard haircut across instruments",
+      "eligible asset list pre-agreed between pledgor and receiver"
+    ],
+    "production_requirements": [
+      "authoritative ownership record",
+      "settlement finality and transfer effectiveness",
+      "wallet and transfer controls",
+      "reconciliation across token, fund entitlement and collateral records",
+      "accepted valuation and haircut treatment",
+      "product-level collateral acceptance",
+      "default access and liquidation mechanics"
+    ],
+    "control_response": "TFII establishes a fail-closed integrity precheck before native CDM collateral-criteria matching. Missing mandatory evidence remains UNKNOWN and blocks query execution without declaring the instrument eligible, ineligible, safe or unsafe."
+  },
+  "control_sequence": [
+    {
+      "step": 1,
+      "name": "identify financial object",
+      "pass_condition": "Exact instrument and issuer are source-bound.",
+      "fail_closed_result": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "step": 2,
+      "name": "establish record integrity",
+      "pass_condition": "Authoritative record, chain role, transfer boundary, record keeper, processing, correction, reconciliation, wallet controls, valuation, rights and coverage are established.",
+      "fail_closed_result": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "step": 3,
+      "name": "establish program-specific admission evidence",
+      "pass_condition": "Governing schedule, receiver acceptance, position, valuation, haircut, concentration, custody/control, default access and freshness are established.",
+      "fail_closed_result": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "step": 4,
+      "name": "invoke CDM eligibility query",
+      "pass_condition": "Steps 1 through 3 pass and a complete query can be constructed.",
+      "fail_closed_result": "CDM_QUERY_NOT_RUN"
+    },
+    {
+      "step": 5,
+      "name": "preserve decision boundary",
+      "pass_condition": "The precheck and CDM result are retained as decision inputs subject to independent legal, operational and risk approval.",
+      "fail_closed_result": "NO_ADMISSION_DECISION"
+    }
+  ],
+  "requirement_catalog": [
+    {
+      "requirement_id": "TFII-AC-001",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "instrument_identity",
+      "question": "Is the exact financial instrument identified?",
+      "mandatory": true,
+      "public_sample_key": "subject",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-002",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "architecture_class",
+      "question": "Is the ownership-record architecture classified?",
+      "mandatory": true,
+      "public_sample_key": "architecture_class",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-003",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "authoritative_record",
+      "question": "Which ledger, register or book controls ownership?",
+      "mandatory": true,
+      "public_sample_key": "authoritative_record",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-004",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "chain_role",
+      "question": "What role does the blockchain play in the official record?",
+      "mandatory": true,
+      "public_sample_key": "chain_role",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-005",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "transfer_effective_event",
+      "question": "Which event makes ownership or entitlement effective?",
+      "mandatory": true,
+      "public_sample_key": "transfer_effective_event",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-006",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "record_keeper",
+      "question": "Which party maintains the governing record?",
+      "mandatory": true,
+      "public_sample_key": "record_keeper",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-007",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "processing_calendar",
+      "question": "When can the governing record process the relevant transfer or redemption?",
+      "mandatory": true,
+      "public_sample_key": "processing_calendar",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-008",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "correction_hierarchy",
+      "question": "Which party and record control after a divergence?",
+      "mandatory": true,
+      "public_sample_key": "correction_hierarchy",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-009",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "reconciliation",
+      "question": "Are comparison cadence, direction and exception handling established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-010",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "wallet_eligibility",
+      "question": "Are wallet, holder, allowlist and transfer controls established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-011",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "valuation_clock",
+      "question": "Is the governing valuation boundary and source established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-012",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "rights_state",
+      "question": "Are source and downstream-use rights bounded?",
+      "mandatory": true,
+      "public_sample_key": "rights_state",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-013",
+      "layer": "ARCHITECTURE_INTEGRITY",
+      "field": "coverage_and_unknowns",
+      "question": "Are public-source coverage and unresolved evidence explicit?",
+      "mandatory": true,
+      "public_sample_key": "__coverage__",
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-014",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "governing_collateral_schedule",
+      "question": "Does a governing collateral agreement or schedule include this instrument?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-015",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "receiver_acceptance",
+      "question": "Has the secured party, CCP, custodian or other receiver accepted the instrument?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-016",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "position_control_and_encumbrance",
+      "question": "Are the live position, owner, control and encumbrance state established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-017",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "program_valuation",
+      "question": "Is a fresh valuation accepted by the collateral program available?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-018",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "haircut",
+      "question": "Is the applicable haircut or margin percentage established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-019",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "concentration_limit",
+      "question": "Are applicable position and concentration limits established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-020",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "custody_control_and_perfection",
+      "question": "Are custody, control and any required legal-perfection conditions established?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-021",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "default_access_and_liquidation",
+      "question": "Can the receiver access, enforce against and liquidate the asset under the governing arrangement?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    },
+    {
+      "requirement_id": "TFII-AC-022",
+      "layer": "PROGRAM_SPECIFIC_ADMISSION",
+      "field": "decision_boundary_freshness",
+      "question": "Are all admission inputs current at the exact decision boundary?",
+      "mandatory": true,
+      "public_sample_key": null,
+      "unknown_effect": "HOLD_MISSING_EVIDENCE"
+    }
+  ],
+  "instrument_results": [
+    {
+      "record_id": "FET-TFII-001",
+      "instrument_name": "Franklin OnChain U.S. Government Money Fund",
+      "architecture_class": "TRANSFER_AGENT_BLOCKCHAIN_INTEGRATED_OFFICIAL_RECORD",
+      "architecture_results": [
+        {
+          "requirement_id": "TFII-AC-001",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-001].subject",
+          "note": "Source-native instrument and registrant are present."
+        },
+        {
+          "requirement_id": "TFII-AC-002",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-001].architecture_class",
+          "note": "TFII architecture class is present."
+        },
+        {
+          "requirement_id": "TFII-AC-003",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-004",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-005",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-006",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-007",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-008",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-009",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-010",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-011",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-012",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-013",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-001].unknowns",
+          "note": "Public coverage and unresolved evidence are explicit."
+        }
+      ],
+      "program_results": [
+        {
+          "requirement_id": "TFII-AC-014",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-015",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-016",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-017",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-018",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-019",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-020",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-021",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-022",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        }
+      ],
+      "architecture_precheck": "PARTIAL",
+      "precheck_state": "HOLD_MISSING_EVIDENCE",
+      "cdm_eligibility_query_state": "NOT_RUN",
+      "determination": "UNKNOWN",
+      "unknowns": [
+        "TFII-AC-009",
+        "TFII-AC-010",
+        "TFII-AC-011",
+        "TFII-AC-014",
+        "TFII-AC-015",
+        "TFII-AC-016",
+        "TFII-AC-017",
+        "TFII-AC-018",
+        "TFII-AC-019",
+        "TFII-AC-020",
+        "TFII-AC-021",
+        "TFII-AC-022",
+        "collateral-program fund eligibility, balances, haircuts, and client exposures",
+        "issuer endorsement and non-EDGAR downstream-data rights",
+        "reconciliation workpapers"
+      ],
+      "not_an_eligibility_decision": true
+    },
+    {
+      "record_id": "FET-TFII-002",
+      "instrument_name": "JPMorgan OnChain Liquidity-Token Money Market Fund",
+      "architecture_class": "BLOCKCHAIN_INSTRUCTION_OFFCHAIN_AUTHORITATIVE_REGISTER",
+      "architecture_results": [
+        {
+          "requirement_id": "TFII-AC-001",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-002].subject",
+          "note": "Source-native instrument and registrant are present."
+        },
+        {
+          "requirement_id": "TFII-AC-002",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-002].architecture_class",
+          "note": "TFII architecture class is present."
+        },
+        {
+          "requirement_id": "TFII-AC-003",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-004",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-005",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-006",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-007",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-008",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-009",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-010",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-011",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-012",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-013",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-002].unknowns",
+          "note": "Public coverage and unresolved evidence are explicit."
+        }
+      ],
+      "program_results": [
+        {
+          "requirement_id": "TFII-AC-014",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-015",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-016",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-017",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-018",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-019",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-020",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-021",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-022",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        }
+      ],
+      "architecture_precheck": "PARTIAL",
+      "precheck_state": "HOLD_MISSING_EVIDENCE",
+      "cdm_eligibility_query_state": "NOT_RUN",
+      "determination": "UNKNOWN",
+      "unknowns": [
+        "TFII-AC-009",
+        "TFII-AC-010",
+        "TFII-AC-011",
+        "TFII-AC-014",
+        "TFII-AC-015",
+        "TFII-AC-016",
+        "TFII-AC-017",
+        "TFII-AC-018",
+        "TFII-AC-019",
+        "TFII-AC-020",
+        "TFII-AC-021",
+        "TFII-AC-022",
+        "downstream financial dependency and balances",
+        "issuer endorsement and non-EDGAR downstream-data rights",
+        "named stablecoin issuers and live reserve allocations",
+        "reconciliation workpapers"
+      ],
+      "not_an_eligibility_decision": true
+    },
+    {
+      "record_id": "FET-TFII-003",
+      "instrument_name": "Superstate USTB Money Market Fund",
+      "architecture_class": "UNIFIED_TRANSFER_AGENT_RECORD_WITH_BLOCKCHAIN_COMPONENTS",
+      "architecture_results": [
+        {
+          "requirement_id": "TFII-AC-001",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-003].subject",
+          "note": "Source-native instrument and registrant are present."
+        },
+        {
+          "requirement_id": "TFII-AC-002",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-003].architecture_class",
+          "note": "TFII architecture class is present."
+        },
+        {
+          "requirement_id": "TFII-AC-003",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-004",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-005",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-006",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-007",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-008",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-009",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-010",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-011",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-012",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-013",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-003].unknowns",
+          "note": "Public coverage and unresolved evidence are explicit."
+        }
+      ],
+      "program_results": [
+        {
+          "requirement_id": "TFII-AC-014",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-015",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-016",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-017",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-018",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-019",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-020",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-021",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-022",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        }
+      ],
+      "architecture_precheck": "PARTIAL",
+      "precheck_state": "HOLD_MISSING_EVIDENCE",
+      "cdm_eligibility_query_state": "NOT_RUN",
+      "determination": "UNKNOWN",
+      "unknowns": [
+        "TFII-AC-009",
+        "TFII-AC-010",
+        "TFII-AC-011",
+        "TFII-AC-014",
+        "TFII-AC-015",
+        "TFII-AC-016",
+        "TFII-AC-017",
+        "TFII-AC-018",
+        "TFII-AC-019",
+        "TFII-AC-020",
+        "TFII-AC-021",
+        "TFII-AC-022",
+        "downstream financial dependencies",
+        "exact share class",
+        "issuer endorsement and non-EDGAR downstream-data rights",
+        "private reconciliation exceptions"
+      ],
+      "not_an_eligibility_decision": true
+    },
+    {
+      "record_id": "FET-TFII-004",
+      "instrument_name": "Invesco Stablecoin Reserves Onchain Fund",
+      "architecture_class": "DESIGNATED_BLOCKCHAIN_AND_OFFCHAIN_IDENTITY_REGISTER_JOINT_OFFICIAL_RECORD",
+      "architecture_results": [
+        {
+          "requirement_id": "TFII-AC-001",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-004].subject",
+          "note": "Source-native instrument and registrant are present."
+        },
+        {
+          "requirement_id": "TFII-AC-002",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-004].architecture_class",
+          "note": "TFII architecture class is present."
+        },
+        {
+          "requirement_id": "TFII-AC-003",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-004",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-005",
+          "status": "UNKNOWN",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-6",
+          "note": "Public TFII evidence status is UNKNOWN."
+        },
+        {
+          "requirement_id": "TFII-AC-006",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-007",
+          "status": "UNKNOWN",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "note": "Public TFII evidence status is UNKNOWN."
+        },
+        {
+          "requirement_id": "TFII-AC-008",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-7",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-009",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-010",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-011",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-012",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-013",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-004].unknowns",
+          "note": "Public coverage and unresolved evidence are explicit."
+        }
+      ],
+      "program_results": [
+        {
+          "requirement_id": "TFII-AC-014",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-015",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-016",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-017",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-018",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-019",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-020",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-021",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-022",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        }
+      ],
+      "architecture_precheck": "PARTIAL",
+      "precheck_state": "HOLD_MISSING_EVIDENCE",
+      "cdm_eligibility_query_state": "NOT_RUN",
+      "determination": "UNKNOWN",
+      "unknowns": [
+        "TFII-AC-005",
+        "TFII-AC-007",
+        "TFII-AC-009",
+        "TFII-AC-010",
+        "TFII-AC-011",
+        "TFII-AC-014",
+        "TFII-AC-015",
+        "TFII-AC-016",
+        "TFII-AC-017",
+        "TFII-AC-018",
+        "TFII-AC-019",
+        "TFII-AC-020",
+        "TFII-AC-021",
+        "TFII-AC-022",
+        "downstream financial dependencies",
+        "exact intraday valuation timestamp",
+        "exact share class and ticker",
+        "issuer endorsement and non-EDGAR downstream-data rights",
+        "processing calendar",
+        "reconciliation procedure",
+        "replacement filing effectiveness",
+        "share issuance or sales under the replacement filing",
+        "transfer-effective event"
+      ],
+      "not_an_eligibility_decision": true
+    },
+    {
+      "record_id": "FET-TFII-005",
+      "instrument_name": "HSBC Hybrid Gold ETF",
+      "architecture_class": "OFFCHAIN_AUTHORITATIVE_REGISTER_SUPPLEMENTARY_BLOCKCHAIN",
+      "architecture_results": [
+        {
+          "requirement_id": "TFII-AC-001",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-005].subject",
+          "note": "Source-native instrument and registrant are present."
+        },
+        {
+          "requirement_id": "TFII-AC-002",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-005].architecture_class",
+          "note": "TFII architecture class is present."
+        },
+        {
+          "requirement_id": "TFII-AC-003",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-004",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-005",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-006",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#filing-metadata",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-007",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-008",
+          "status": "PASS",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "note": "Public TFII evidence status is OBSERVATION."
+        },
+        {
+          "requirement_id": "TFII-AC-009",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-010",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-011",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-012",
+          "status": "PARTIAL",
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "note": "Public TFII evidence status is BOUNDED_INTERPRETATION."
+        },
+        {
+          "requirement_id": "TFII-AC-013",
+          "status": "PASS",
+          "source_locator": "public_sample.records[FET-TFII-005].unknowns",
+          "note": "Public coverage and unresolved evidence are explicit."
+        }
+      ],
+      "program_results": [
+        {
+          "requirement_id": "TFII-AC-014",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-015",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-016",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-017",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-018",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-019",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-020",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-021",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        },
+        {
+          "requirement_id": "TFII-AC-022",
+          "status": "UNKNOWN",
+          "source_locator": "public_sample:field_not_supplied",
+          "note": "The public TFII sample does not establish this mandatory input."
+        }
+      ],
+      "architecture_precheck": "PARTIAL",
+      "precheck_state": "HOLD_MISSING_EVIDENCE",
+      "cdm_eligibility_query_state": "NOT_RUN",
+      "determination": "UNKNOWN",
+      "unknowns": [
+        "TFII-AC-009",
+        "TFII-AC-010",
+        "TFII-AC-011",
+        "TFII-AC-014",
+        "TFII-AC-015",
+        "TFII-AC-016",
+        "TFII-AC-017",
+        "TFII-AC-018",
+        "TFII-AC-019",
+        "TFII-AC-020",
+        "TFII-AC-021",
+        "TFII-AC-022",
+        "downstream financial dependencies",
+        "issuer endorsement and non-EDGAR downstream-data rights",
+        "private reconciliation exceptions"
+      ],
+      "not_an_eligibility_decision": true
+    }
+  ],
+  "aggregate": {
+    "instrument_count": 5,
+    "architecture_precheck_complete": 0,
+    "architecture_precheck_partial": 5,
+    "architecture_precheck_unknown": 0,
+    "ready_for_cdm_eligibility_query": 0,
+    "held_for_missing_evidence": 5,
+    "cdm_queries_run": 0,
+    "admission_decisions_made": 0,
+    "determination_counts": {
+      "PASS": 0,
+      "PARTIAL": 0,
+      "FAIL": 0,
+      "UNKNOWN": 5
+    }
+  },
+  "external_determination": "UNKNOWN",
+  "claim_boundary": {
+    "legal_opinion_provided": false,
+    "instrument_declared_eligible": false,
+    "instrument_declared_ineligible": false,
+    "risk_score_produced": false,
+    "investment_recommendation_provided": false,
+    "automated_execution_authorized": false
+  },
+  "validation": {
+    "json_valid": true,
+    "schema_valid": true,
+    "requirement_ids_unique": true,
+    "record_ids_match_public_sample": true,
+    "all_mandatory_unknowns_fail_closed": true,
+    "no_cdm_query_ran_before_precheck": true,
+    "no_admission_decision_produced": true,
+    "aggregate_recomputed": true,
+    "claim_boundary_passed": true
+  }
+}

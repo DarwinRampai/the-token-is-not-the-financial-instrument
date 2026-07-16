@@ -1,0 +1,73 @@
+{
+  "artifact": "Transfer_Boundary_Classification_Public_Example",
+  "version": "1.0.0",
+  "release_date": "2026-07-16",
+  "method": [
+    "UNKNOWN or null transfer-effective event -> UNKNOWN",
+    "Investor Register update -> OFFCHAIN_REGISTER_UPDATE",
+    "blockchain execution followed by reflection on books -> BLOCKCHAIN_THEN_BOOK_ENTRY",
+    "blockchain transaction confirmation after transfer-agent processing -> BLOCKCHAIN_CONFIRMATION",
+    "otherwise -> UNCLASSIFIED_REVIEW_REQUIRED"
+  ],
+  "rows": [
+    {
+      "record_id": "FET-TFII-001",
+      "instrument_name": "Franklin OnChain U.S. Government Money Fund",
+      "input": {
+        "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+        "evidence_status": "OBSERVATION"
+      },
+      "output_transfer_boundary_class": "BLOCKCHAIN_CONFIRMATION"
+    },
+    {
+      "record_id": "FET-TFII-002",
+      "instrument_name": "JPMorgan OnChain Liquidity-Token Money Market Fund",
+      "input": {
+        "value": "Transfer agent update to the offchain Investor Register.",
+        "evidence_status": "OBSERVATION"
+      },
+      "output_transfer_boundary_class": "OFFCHAIN_REGISTER_UPDATE"
+    },
+    {
+      "record_id": "FET-TFII-003",
+      "instrument_name": "Superstate USTB Money Market Fund",
+      "input": {
+        "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+        "evidence_status": "OBSERVATION"
+      },
+      "output_transfer_boundary_class": "BLOCKCHAIN_CONFIRMATION"
+    },
+    {
+      "record_id": "FET-TFII-004",
+      "instrument_name": "Invesco Stablecoin Reserves Onchain Fund",
+      "input": {
+        "value": null,
+        "evidence_status": "UNKNOWN"
+      },
+      "output_transfer_boundary_class": "UNKNOWN"
+    },
+    {
+      "record_id": "FET-TFII-005",
+      "instrument_name": "HSBC Hybrid Gold ETF",
+      "input": {
+        "value": "The blockchain transfer executes first; ownership is then reflected on the Transfer Agent's books and records.",
+        "evidence_status": "OBSERVATION"
+      },
+      "output_transfer_boundary_class": "BLOCKCHAIN_THEN_BOOK_ENTRY"
+    }
+  ],
+  "result_counts": {
+    "BLOCKCHAIN_CONFIRMATION": 2,
+    "BLOCKCHAIN_THEN_BOOK_ENTRY": 1,
+    "OFFCHAIN_REGISTER_UPDATE": 1,
+    "UNKNOWN": 1
+  },
+  "expected_result": {
+    "BLOCKCHAIN_CONFIRMATION": 2,
+    "BLOCKCHAIN_THEN_BOOK_ENTRY": 1,
+    "OFFCHAIN_REGISTER_UPDATE": 1,
+    "UNKNOWN": 1
+  },
+  "validation_passed": true,
+  "not_a_valuation_or_settlement_calculation": true
+}

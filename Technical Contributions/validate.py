@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+"""Validate the public TFII technical contributions."""
+
+from __future__ import annotations
+
+import json
+import sys
+from collections import Counter
+from pathlib import Path
+from typing import Any
+
+from jsonschema import Draft202012Validator, FormatChecker
+
+
+ROOT = Path(__file__).resolve().parent
+
+
+def load(name: str) -> dict[str, Any]:
+    with (ROOT / name).open("r", encoding="utf-8") as handle:
+        value = json.load(handle)
+    if not isinstance(value, dict):
+        raise ValueError(f"{name}: top-level JSON value must be an object")
+    return value
+
+
+def schema_errors(schema: dict[str, Any], value: dict[str, Any]) -> list[str]:
+    Draft202012Validator.check_schema(schema)
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    return [error.message for error in validator.iter_errors(value)]
+
+
+def validate_conformance() -> str:
+    schema = load("tfii-finos-cdm-conformance-test-001.schema.json")
+    result = load("tfii-finos-cdm-conformance-test-001.json")
+    sample = load("fixtures/TFII-Public-Sample-v1.0.json")
+    calculation = load("fixtures/Transfer-Boundary-Classification-v1.0.json")
+    errors = schema_errors(schema, result)
+
+    requirements = result["requirements"]
+    ids = [row["requirement_id"] for row in requirements]
+    if len(ids) != len(set(ids)):
+        errors.append("conformance requirement IDs are not unique")
+    counts = Counter(row["status"] for row in requirements)
+    expected_counts = {key: counts.get(key, 0) for key in ("PASS", "PARTIAL", "FAIL", "UNKNOWN")}
+    if expected_counts != result["summary"]["result_counts"]:
+        errors.append("conformance result counts do not recompute")
+    if len(requirements) != result["summary"]["requirement_count"]:
+        errors.append("conformance requirement count does not recompute")
+
+    sample_rows = {row["record_id"]: row for row in sample["records"]}
+    calc_rows = {row["record_id"]: row for row in calculation["rows"]}
+    vectors = {row["record_id"]: row for row in result["test_vectors"]}
+    if set(vectors) != set(sample_rows) or set(vectors) != set(calc_rows):
+        errors.append("conformance vector IDs do not match the fixtures")
+    for record_id, vector in vectors.items():
+        if vector["architecture_class"] != sample_rows[record_id]["architecture_class"]:
+            errors.append(f"{record_id}: architecture class mismatch")
+        if vector["transfer_boundary_class"] != calc_rows[record_id]["output_transfer_boundary_class"]:
+            errors.append(f"{record_id}: transfer boundary mismatch")
+    if result["summary"]["overall_result"] != "PARTIAL":
+        errors.append("conformance overall result must be PARTIAL")
+    if errors:
+        raise ValueError("; ".join(errors))
+    return result["summary"]["overall_result"]
+
+
+def validate_control() -> str:
+    schema = load("tfii-tokenized-fund-collateral-admission-control-001.schema.json")
+    control = load("tfii-tokenized-fund-collateral-admission-control-001.json")
+    sample = load("fixtures/TFII-Public-Sample-v1.0.json")
+    errors = schema_errors(schema, control)
+
+    ids = [row["requirement_id"] for row in control["requirement_catalog"]]
+    if len(ids) != len(set(ids)):
+        errors.append("control requirement IDs are not unique")
+    rows = control["instrument_results"]
+    if {row["record_id"] for row in rows} != {row["record_id"] for row in sample["records"]}:
+        errors.append("control record IDs do not match the public fixture")
+    for row in rows:
+        missing = [
+            item
+            for item in row["architecture_results"] + row["program_results"]
+            if item["status"] in {"FAIL", "UNKNOWN"}
+        ]
+        if missing and (
+            row["precheck_state"] != "HOLD_MISSING_EVIDENCE"
+            or row["cdm_eligibility_query_state"] != "NOT_RUN"
+            or row["determination"] != "UNKNOWN"
+        ):
+            errors.append(f"{row['record_id']}: mandatory Unknown did not fail closed")
+    aggregate = control["aggregate"]
+    if aggregate["instrument_count"] != len(rows):
+        errors.append("control instrument count does not recompute")
+    if aggregate["cdm_queries_run"] != 0 or aggregate["admission_decisions_made"] != 0:
+        errors.append("control emitted a query or admission decision")
+    if control["external_determination"] != "UNKNOWN":
+        errors.append("control determination must remain UNKNOWN")
+    if any(control["claim_boundary"].values()):
+        errors.append("control claim boundary failed")
+    if errors:
+        raise ValueError("; ".join(errors))
+    return control["external_determination"]
+
+
+def main() -> int:
+    try:
+        conformance = validate_conformance()
+        control = validate_control()
+    except Exception as exc:
+        print(f"FAIL {exc}", file=sys.stderr)
+        return 1
+    print(f"PASS conformance test: {conformance}")
+    print(f"PASS collateral admission control: {control}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
