@@ -18,6 +18,7 @@ transfer model without preserving source-native authority and timing.
 
 ## Read
 
+- [Permanent DOI record](https://doi.org/10.5281/zenodo.21399416)
 - [Research paper (PDF)](The_Token_Is_Not_the_Financial_Instrument_Darwin_Rampai_2026_v1.0.pdf)
 - [Web-readable paper](docs/paper.html)
 - [Complete bounded public evidence package](The_Token_Is_Not_the_Financial_Instrument_v1.0_Public_Evidence_Package.zip)
@@ -79,9 +80,10 @@ Tokenized Funds, Five Record Architectures, and the Control Boundary Between
 Blockchain Transfer and Financial Ownership*. Version 1.0. Independent
 Research.
 
+DOI: [10.5281/zenodo.21399416](https://doi.org/10.5281/zenodo.21399416)
+
 ## Rights
 
 Copyright Darwin Rampai 2026. Public reading, quotation and citation of the
 paper and bounded evidence package are permitted with attribution. See
 [RIGHTS.md](RIGHTS.md) for the public and controlled-use boundary.
-
