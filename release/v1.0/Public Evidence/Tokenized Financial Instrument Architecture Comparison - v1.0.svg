@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <g fill="#000000" font-family="Arial, Helvetica, sans-serif">
+    <text x="64" y="68" font-size="38" font-weight="700">One Token Form. Five Record Architectures.</text>
+    <text x="64" y="104" font-size="19">Primary filings describe materially different paths from token movement to authoritative ownership.</text>
+
+    <line x1="64" y1="132" x2="1536" y2="132" stroke="#000000" stroke-width="3"/>
+
+    <text x="78" y="170" font-size="16" font-weight="700">INSTRUMENT</text>
+    <text x="378" y="170" font-size="16" font-weight="700">ONCHAIN ROLE</text>
+    <text x="774" y="170" font-size="16" font-weight="700">AUTHORITATIVE RECORD</text>
+    <text x="1220" y="170" font-size="16" font-weight="700">TRANSFER-EFFECTIVE EVENT</text>
+
+    <g font-size="17">
+      <rect x="64" y="190" width="260" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="82" y="226" font-weight="700">Franklin OnChain</text>
+      <text x="82" y="251">U.S. Government</text>
+      <text x="82" y="276">Money Fund</text>
+
+      <rect x="366" y="190" width="330" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="384" y="237">Integrated into the official</text>
+      <text x="384" y="264">recordkeeping system</text>
+
+      <rect x="738" y="190" width="410" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="756" y="237">Transfer-agent-maintained official</text>
+      <text x="756" y="264">ownership record</text>
+
+      <rect x="1190" y="190" width="346" height="116" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <text x="1208" y="237" font-weight="700">Blockchain confirmation</text>
+      <text x="1208" y="264">after transfer-agent processing</text>
+
+      <line x1="324" y1="248" x2="356" y2="248" stroke="#000000" stroke-width="2"/>
+      <polygon points="356,248 346,242 346,254" fill="#000000"/>
+      <line x1="696" y1="248" x2="728" y2="248" stroke="#000000" stroke-width="2"/>
+      <polygon points="728,248 718,242 718,254" fill="#000000"/>
+      <line x1="1148" y1="248" x2="1180" y2="248" stroke="#000000" stroke-width="2"/>
+      <polygon points="1180,248 1170,242 1170,254" fill="#000000"/>
+
+      <rect x="64" y="328" width="260" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="82" y="364" font-weight="700">JPMorgan OnChain</text>
+      <text x="82" y="389">Liquidity-Token</text>
+      <text x="82" y="414">Money Market Fund</text>
+
+      <rect x="366" y="328" width="330" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="384" y="375">Token balance submits</text>
+      <text x="384" y="402">a transfer instruction</text>
+
+      <rect x="738" y="328" width="410" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="756" y="375">Offchain Investor Register</text>
+      <text x="756" y="402">is determinative</text>
+
+      <rect x="1190" y="328" width="346" height="116" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <text x="1208" y="375" font-weight="700">Investor Register update</text>
+      <text x="1208" y="402">not token movement alone</text>
+
+      <line x1="324" y1="386" x2="356" y2="386" stroke="#000000" stroke-width="2"/>
+      <polygon points="356,386 346,380 346,392" fill="#000000"/>
+      <line x1="696" y1="386" x2="728" y2="386" stroke="#000000" stroke-width="2"/>
+      <polygon points="728,386 718,380 718,392" fill="#000000"/>
+      <line x1="1148" y1="386" x2="1180" y2="386" stroke="#000000" stroke-width="2"/>
+      <polygon points="1180,386 1170,380 1170,392" fill="#000000"/>
+
+      <rect x="64" y="466" width="260" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="82" y="502" font-weight="700">Superstate USTB</text>
+      <text x="82" y="527">Money Market Fund</text>
+
+      <rect x="366" y="466" width="330" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="384" y="513">Component of a unified</text>
+      <text x="384" y="540">ownership record</text>
+
+      <rect x="738" y="466" width="410" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="756" y="513">Transfer-agent-controlled unified</text>
+      <text x="756" y="540">blockchain and book-entry record</text>
+
+      <rect x="1190" y="466" width="346" height="116" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <text x="1208" y="513" font-weight="700">Blockchain confirmation</text>
+      <text x="1208" y="540">after transfer-agent processing</text>
+
+      <line x1="324" y1="524" x2="356" y2="524" stroke="#000000" stroke-width="2"/>
+      <polygon points="356,524 346,518 346,530" fill="#000000"/>
+      <line x1="696" y1="524" x2="728" y2="524" stroke="#000000" stroke-width="2"/>
+      <polygon points="728,524 718,518 718,530" fill="#000000"/>
+      <line x1="1148" y1="524" x2="1180" y2="524" stroke="#000000" stroke-width="2"/>
+      <polygon points="1180,524 1170,518 1170,530" fill="#000000"/>
+
+      <rect x="64" y="604" width="260" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="82" y="640" font-weight="700">Invesco Stablecoin</text>
+      <text x="82" y="665">Reserves Onchain Fund</text>
+
+      <rect x="366" y="604" width="330" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="384" y="651">Designated blockchain</text>
+      <text x="384" y="678">records ownership and transfer</text>
+
+      <rect x="738" y="604" width="410" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="756" y="640">Blockchain plus offchain identity</text>
+      <text x="756" y="665">register jointly form the official</text>
+      <text x="756" y="690">shareholder register</text>
+
+      <rect x="1190" y="604" width="346" height="116" fill="#ffffff" stroke="#000000" stroke-width="3" stroke-dasharray="10 8"/>
+      <text x="1208" y="651" font-weight="700">UNKNOWN</text>
+      <text x="1208" y="678">exact effective event unresolved</text>
+
+      <line x1="324" y1="662" x2="356" y2="662" stroke="#000000" stroke-width="2"/>
+      <polygon points="356,662 346,656 346,668" fill="#000000"/>
+      <line x1="696" y1="662" x2="728" y2="662" stroke="#000000" stroke-width="2"/>
+      <polygon points="728,662 718,656 718,668" fill="#000000"/>
+      <line x1="1148" y1="662" x2="1180" y2="662" stroke="#000000" stroke-width="2" stroke-dasharray="8 6"/>
+      <polygon points="1180,662 1170,656 1170,668" fill="#000000"/>
+
+      <rect x="64" y="742" width="260" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="82" y="778" font-weight="700">HSBC Hybrid Gold ETF</text>
+      <text x="82" y="803">HSBC Physical Gold Trust</text>
+
+      <rect x="366" y="742" width="330" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="384" y="789">Supplementary blockchain</text>
+      <text x="384" y="816">representation</text>
+
+      <rect x="738" y="742" width="410" height="116" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+      <text x="756" y="789">BNY offchain book-entry record</text>
+      <text x="756" y="816">is definitive</text>
+
+      <rect x="1190" y="742" width="346" height="116" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+      <text x="1208" y="778" font-weight="700">Blockchain execution, then</text>
+      <text x="1208" y="803">transfer-agent book reflection</text>
+
+      <line x1="324" y1="800" x2="356" y2="800" stroke="#000000" stroke-width="2"/>
+      <polygon points="356,800 346,794 346,806" fill="#000000"/>
+      <line x1="696" y1="800" x2="728" y2="800" stroke="#000000" stroke-width="2"/>
+      <polygon points="728,800 718,794 718,806" fill="#000000"/>
+      <line x1="1148" y1="800" x2="1180" y2="800" stroke="#000000" stroke-width="2"/>
+      <polygon points="1180,800 1170,794 1170,806" fill="#000000"/>
+    </g>
+
+    <line x1="64" y1="892" x2="1536" y2="892" stroke="#000000" stroke-width="2"/>
+    <rect x="64" y="916" width="34" height="22" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="112" y="934" font-size="15">Receipt-backed observation</text>
+    <rect x="350" y="916" width="34" height="22" fill="#ffffff" stroke="#000000" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="398" y="934" font-size="15">Unknown transfer boundary</text>
+    <text x="1536" y="934" text-anchor="end" font-size="14">Public evidence figure · Version 1.0 · 16 July 2026</text>
+    <text x="64" y="970" font-size="14">Source: five hash-bound SEC filing receipts. Architecture classification is not a legal opinion or investment recommendation.</text>
+  </g>
+</svg>

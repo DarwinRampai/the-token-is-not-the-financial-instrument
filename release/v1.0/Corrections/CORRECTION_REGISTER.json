@@ -1,0 +1,20 @@
+{
+  "artifact": "TFII_001_Public_Correction_Register",
+  "version": "1.0.0",
+  "as_of": "2026-07-16",
+  "publication": "The Token Is Not the Financial Instrument",
+  "submission_channel": {
+    "email": "rampaidarwin@gmail.com",
+    "subject": "TFII 001 correction"
+  },
+  "adjudication_states": [
+    "SUPPORTED",
+    "PARTIALLY_SUPPORTED",
+    "UNSUPPORTED",
+    "SUPERSEDED",
+    "UNRESOLVED"
+  ],
+  "silent_overwrite_permitted": false,
+  "corrections": [],
+  "register_state": "OPEN_NO_PUBLIC_CORRECTIONS_RECORDED"
+}

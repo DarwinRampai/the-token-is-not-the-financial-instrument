@@ -1,0 +1,133 @@
+{
+  "artifact": "FET_TFII_Public_Release_Manifest_001",
+  "version": "1.0.0",
+  "release_date": "2026-07-16",
+  "publication": {
+    "title": "The Token Is Not the Financial Instrument",
+    "version": "1.0",
+    "author": "Darwin Rampai"
+  },
+  "reference_family": "Tokenized Financial Instrument Integrity Reference Family 001",
+  "release_state": "FINAL_PUBLIC_EVIDENCE_PACKAGE_READY",
+  "public_release_permitted": true,
+  "commercial_delivery_permitted": false,
+  "correction_channel": {
+    "path": "Corrections/CORRECTIONS.md",
+    "email": "rampaidarwin@gmail.com",
+    "subject": "TFII 001 correction",
+    "register_state": "OPEN_NO_PUBLIC_CORRECTIONS_RECORDED"
+  },
+  "artifact_bindings": [
+    {
+      "path": "Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.pdf",
+      "sha256": "da195cd325aec0bb98701cdb07c0afca2b060b158b90466d5e7325976a17ef45",
+      "role": "final research paper PDF",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.docx",
+      "sha256": "a6cd05ff0a00e5d3b16f35f96d459dcf0ba1110b217a78c6c58e83b158de811d",
+      "role": "final research paper DOCX",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.html",
+      "sha256": "defb7f4397a6f0966e4123ec55011879f661e74ddc809657420c7a524ea4898b",
+      "role": "web-readable research paper",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.md",
+      "sha256": "a804f3cbce2cde5fbdc600495069731fb5096a3ae126ad027319e8805a6e14e4",
+      "role": "research paper source",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Public Evidence/Tokenized Financial Instrument Integrity - Public Sample - v1.0.json",
+      "sha256": "a00b47432e36e26436a327d138070bc0cb139e0fa417afa47bbb947f687553ef",
+      "role": "bounded five-record public sample",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Public Evidence/Tokenized Financial Instrument Integrity - Claim Evidence Matrix - v1.0.json",
+      "sha256": "d383f98aec81be73a14565e73afcd6c89d87851af85cd0a442aa879f762b7633",
+      "role": "reduced claim-to-evidence matrix",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Public Evidence/Transfer Boundary Classification - Calculation Example - v1.0.json",
+      "sha256": "702f906d4bf1b507cd65abffccf0bad6c25e4319b77e6ad5cc2700d506d6713e",
+      "role": "deterministic classification example",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Public Evidence/Tokenized Financial Instrument Architecture Comparison - v1.0.svg",
+      "sha256": "31e417d9dd9783d37ec860754c284ca918df59593ad66d43fc6979138e754cc4",
+      "role": "architecture comparison figure",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Public Evidence/Franklin BENJI Financial Control Chain - v1.0.svg",
+      "sha256": "003c20f97c74e7d247d6137e4bcd86962916467ea07e030a1713cf2cfffe146c",
+      "role": "bounded downstream-use figure",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Methodology/Tokenized Financial Instrument Integrity - Record Contract.md",
+      "sha256": "8d7d034fda7f874727338e0614223fa532ad2882b2977e3035a39c562953cabc",
+      "role": "public record contract",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Methodology/Tokenized Financial Instrument Integrity - Correction and Version Policy.md",
+      "sha256": "e4e209c7411e79d47165a75f080fa992a2d55c8c2b359957b2290d903726d0d5",
+      "role": "public correction policy",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Methodology/SEC EDGAR Rights Basis.md",
+      "sha256": "2affc733a4df0bc8677d6639ad7012fb452dbc11e93fc4931bc0a57ca6415f41",
+      "role": "bounded public source-use basis",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Methodology/Franklin Downstream Financial Use.md",
+      "sha256": "b578046ce22bc35fc45c32c84e3ff243f68257657708b2298516c0697f3b0fc6",
+      "role": "bounded downstream-use analysis",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Corrections/CORRECTIONS.md",
+      "sha256": "dbf61749b67b5ffe70fbaf501621bfbbaed6e090e8fcc73f06e9a8834e1eb25c",
+      "role": "permanent correction procedure",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "Corrections/CORRECTION_REGISTER.json",
+      "sha256": "4e2b9198f260d03f861cd67a4a09d3d9f87b7cb9568f3f23ad526862a93a462e",
+      "role": "public correction register",
+      "access_class": "PUBLIC"
+    },
+    {
+      "path": "README.md",
+      "sha256": "654c2fdbfd5e55a66586876cc2d53b9785a57c82d59a506dc7a0bae6a6e80f05",
+      "role": "package guide and reproducibility statement",
+      "access_class": "PUBLIC"
+    }
+  ],
+  "controlled_assets_excluded": [
+    "complete maintained registry",
+    "normalized source receipts and complete field locators",
+    "calculation receipts and correction feed",
+    "source-monitor and build implementation",
+    "complete controlled dataset and buyer delivery package"
+  ],
+  "validation": {
+    "publication_validation_passed": true,
+    "final_visual_qa_passed": true,
+    "source_candidates_resolved": true,
+    "correction_channel_open": true,
+    "public_private_boundary_passed": true,
+    "all_hashes_verified": true
+  }
+}

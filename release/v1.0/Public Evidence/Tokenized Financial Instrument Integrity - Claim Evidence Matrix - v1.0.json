@@ -1,0 +1,717 @@
+{
+  "artifact": "Tokenized_Financial_Instrument_Integrity_Public_Claim_Evidence_Matrix",
+  "version": "1.0.0",
+  "release_date": "2026-07-16",
+  "reference_family": "Tokenized Financial Instrument Integrity Reference Family 001",
+  "claims": [
+    {
+      "claim_id": "TFII-CLM-001",
+      "claim_text": "The five reviewed primary filings describe five distinct relationships among token movement, the authoritative ownership record, and transfer effectiveness.",
+      "claim_type": "COMPARATIVE_FINDING",
+      "proof_state": "SUPPORTED_BOUNDED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-001",
+          "field": "chain_role",
+          "assertion_value": "Integrated component of the official transfer-agent record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer-agent-maintained official ownership record across approved blockchain networks.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "chain_role",
+          "assertion_value": "Instruction channel for a requested transfer, not by itself the final ownership register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "authoritative_record",
+          "assertion_value": "Offchain Investor Register maintained by the transfer agent.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transfer agent update to the offchain Investor Register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "chain_role",
+          "assertion_value": "Designated public-blockchain component of a unified official record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "authoritative_record",
+          "assertion_value": "Official unified ownership record maintained under transfer-agent control.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "chain_role",
+          "assertion_value": "Designated record on which ownership and transfer are authenticated and recorded, subject to transfer-agent controls.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "authoritative_record",
+          "assertion_value": "Designated blockchain records together with an offchain identity register constitute the official shareholder register, absent technical failure.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "transfer_effective_event",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "chain_role",
+          "assertion_value": "Supplementary blockchain representation reconciled to the definitive offchain record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer agent's offchain book, stated as definitive evidence of ownership.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "transfer_effective_event",
+          "assertion_value": "The blockchain transfer executes first; ownership is then reflected on the Transfer Agent's books and records.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "TFII-UNK-003",
+          "scope": "all subjects",
+          "missing_evidence": "Jurisdiction-specific legal opinions",
+          "effect": "Prevents FET from issuing definitive legal classifications of ownership claims."
+        }
+      ]
+    },
+    {
+      "claim_id": "TFII-CLM-002",
+      "claim_text": "A visible token balance or token movement is not a uniform proof of authoritative ownership or completed transfer across the five reviewed instruments.",
+      "claim_type": "COMPARATIVE_FINDING",
+      "proof_state": "SUPPORTED_BOUNDED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-001",
+          "field": "chain_role",
+          "assertion_value": "Integrated component of the official transfer-agent record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer-agent-maintained official ownership record across approved blockchain networks.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "chain_role",
+          "assertion_value": "Instruction channel for a requested transfer, not by itself the final ownership register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "authoritative_record",
+          "assertion_value": "Offchain Investor Register maintained by the transfer agent.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "chain_role",
+          "assertion_value": "Designated public-blockchain component of a unified official record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "authoritative_record",
+          "assertion_value": "Official unified ownership record maintained under transfer-agent control.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "chain_role",
+          "assertion_value": "Designated record on which ownership and transfer are authenticated and recorded, subject to transfer-agent controls.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "authoritative_record",
+          "assertion_value": "Designated blockchain records together with an offchain identity register constitute the official shareholder register, absent technical failure.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "chain_role",
+          "assertion_value": "Supplementary blockchain representation reconciled to the definitive offchain record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer agent's offchain book, stated as definitive evidence of ownership.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "TFII-UNK-003",
+          "scope": "all subjects",
+          "missing_evidence": "Jurisdiction-specific legal opinions",
+          "effect": "Prevents FET from issuing definitive legal classifications of ownership claims."
+        }
+      ]
+    },
+    {
+      "claim_id": "TFII-CLM-003",
+      "claim_text": "For the reviewed Franklin and Superstate filing architectures, blockchain confirmation follows transfer-agent processing and is the stated transfer-effective event.",
+      "claim_type": "SUBJECT_FINDING",
+      "proof_state": "SUPPORTED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-001",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        }
+      ],
+      "unknown_refs": []
+    },
+    {
+      "claim_id": "TFII-CLM-004",
+      "claim_text": "For the reviewed JPMorgan filing architecture, token movement submits a transfer instruction, while ownership changes only when the transfer agent updates the offchain Investor Register.",
+      "claim_type": "SUBJECT_FINDING",
+      "proof_state": "SUPPORTED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-002",
+          "field": "chain_role",
+          "assertion_value": "Instruction channel for a requested transfer, not by itself the final ownership register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "authoritative_record",
+          "assertion_value": "Offchain Investor Register maintained by the transfer agent.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transfer agent update to the offchain Investor Register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        }
+      ],
+      "unknown_refs": []
+    },
+    {
+      "claim_id": "TFII-CLM-005",
+      "claim_text": "The reviewed Invesco filing establishes a joint blockchain and offchain identity-register architecture, but the current evidence receipt does not establish the exact transfer-effective event.",
+      "claim_type": "SUBJECT_FINDING",
+      "proof_state": "PARTIALLY_SUPPORTED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-004",
+          "field": "chain_role",
+          "assertion_value": "Designated record on which ownership and transfer are authenticated and recorded, subject to transfer-agent controls.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "authoritative_record",
+          "assertion_value": "Designated blockchain records together with an offchain identity register constitute the official shareholder register, absent technical failure.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "transfer_effective_event",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "FET-TFII-004:transfer_effective_event",
+          "scope": "Invesco Stablecoin Reserves Onchain Fund",
+          "missing_evidence": "Exact event at which the transfer becomes effective",
+          "effect": "Prevents assignment to an onchain-confirmation or offchain-register-update timing class."
+        }
+      ]
+    },
+    {
+      "claim_id": "TFII-CLM-006",
+      "claim_text": "For the reviewed HSBC filing architecture, the transfer agent's offchain book is definitive and a blockchain transfer is followed by reflection on that book.",
+      "claim_type": "SUBJECT_FINDING",
+      "proof_state": "SUPPORTED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-005",
+          "field": "chain_role",
+          "assertion_value": "Supplementary blockchain representation reconciled to the definitive offchain record.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer agent's offchain book, stated as definitive evidence of ownership.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "transfer_effective_event",
+          "assertion_value": "The blockchain transfer executes first; ownership is then reflected on the Transfer Agent's books and records.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "TFII-UNK-001",
+          "scope": "all subjects",
+          "missing_evidence": "Fund-administrator and transfer-agent workpapers",
+          "effect": "Prevents full reconstruction of daily reconciliation, exception handling, and unpublished corrections."
+        }
+      ]
+    },
+    {
+      "claim_id": "TFII-CLM-007",
+      "claim_text": "The controlled TFII registry does not establish complete private reconciliation, downstream financial dependencies, legal equivalence, issuer endorsement, private-data rights, or rights to unrelated downstream datasets.",
+      "claim_type": "EVIDENCE_LIMIT",
+      "proof_state": "NOT_ESTABLISHED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-001",
+          "field": "reconciliation",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "downstream_financial_use",
+          "assertion_value": "Franklin Templeton reports more than USD 211 million of cumulative BENJI peer-to-peer transfer volume through 31 March 2026. A separate live institutional program permits eligible clients to use Benji-issued tokenized money-market fund shares as off-exchange collateral for Binance trading through Ceffu-supported custody.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-USE-001",
+            "EA-USE-002"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "rights_state",
+          "assertion_value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005",
+            "EA-RIGHTS-003"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "reconciliation",
+          "assertion_value": "Token balances may diverge from the Investor Register; the blockchain is updated through subsequent transactions to restore alignment with the determinative register.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "downstream_financial_use",
+          "assertion_value": "The prospectus states that shares are expected to be held by one or more stablecoin issuers as all or part of reserve assets backing their stablecoins, and that the fund intends to invest only in certain eligible reserve assets required under the GENIUS Act.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "Medium",
+          "source_ids": [
+            "EA-FUND-006",
+            "EA-USE-003"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-002",
+          "field": "rights_state",
+          "assertion_value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-006",
+            "EA-RIGHTS-003"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "reconciliation",
+          "assertion_value": "Book-entry and designated blockchain representations are combined in a unified transfer-agent record.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "Medium",
+          "source_ids": [
+            "EA-FUND-007"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "downstream_financial_use",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": []
+        },
+        {
+          "record_id": "FET-TFII-003",
+          "field": "rights_state",
+          "assertion_value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-007",
+            "EA-RIGHTS-003"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "reconciliation",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": [
+            "EA-FUND-008"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "downstream_financial_use",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": [
+            "EA-FUND-013"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-004",
+          "field": "rights_state",
+          "assertion_value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-008",
+            "EA-RIGHTS-003"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "reconciliation",
+          "assertion_value": "At least daily comparison between the blockchain representation and transfer-agent offchain book.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "downstream_financial_use",
+          "assertion_value": null,
+          "evidence_status": "UNKNOWN",
+          "confidence": "Unknown",
+          "source_ids": []
+        },
+        {
+          "record_id": "FET-TFII-005",
+          "field": "rights_state",
+          "assertion_value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-009",
+            "EA-RIGHTS-003"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "TFII-UNK-001",
+          "scope": "all subjects",
+          "missing_evidence": "Fund-administrator and transfer-agent workpapers",
+          "effect": "Prevents full reconstruction of daily reconciliation, exception handling, and unpublished corrections."
+        },
+        {
+          "unknown_id": "TFII-UNK-003",
+          "scope": "all subjects",
+          "missing_evidence": "Jurisdiction-specific legal opinions",
+          "effect": "Prevents FET from issuing definitive legal classifications of ownership claims."
+        },
+        {
+          "unknown_id": "TFII-UNK-004",
+          "scope": "all subjects",
+          "missing_evidence": "Private downstream customer integrations",
+          "effect": "Prevents complete identification of workflows that consume each record."
+        },
+        {
+          "unknown_id": "TFII-UNK-005",
+          "scope": "all subjects",
+          "missing_evidence": "Issuer endorsement, trademark permission, and rights to private or non-EDGAR downstream data",
+          "effect": "Does not block bounded EDGAR-derived TFII records; blocks branding that implies endorsement and inclusion of private or separately controlled data."
+        }
+      ]
+    },
+    {
+      "claim_id": "TFII-CLM-008",
+      "claim_text": "Franklin Templeton reports more than USD 211 million of BENJI peer-to-peer transfers and separately reports a live institutional off-exchange collateral program for Benji-issued tokenized money-market fund shares. The reviewed ownership and transfer architecture therefore attaches to active capital-movement and collateral workflows.",
+      "claim_type": "SUBJECT_FINDING",
+      "proof_state": "SUPPORTED_BOUNDED",
+      "evidence_refs": [
+        {
+          "record_id": "FET-TFII-001",
+          "field": "authoritative_record",
+          "assertion_value": "Transfer-agent-maintained official ownership record across approved blockchain networks.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "transfer_effective_event",
+          "assertion_value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_status": "OBSERVATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-FUND-005"
+          ]
+        },
+        {
+          "record_id": "FET-TFII-001",
+          "field": "downstream_financial_use",
+          "assertion_value": "Franklin Templeton reports more than USD 211 million of cumulative BENJI peer-to-peer transfer volume through 31 March 2026. A separate live institutional program permits eligible clients to use Benji-issued tokenized money-market fund shares as off-exchange collateral for Binance trading through Ceffu-supported custody.",
+          "evidence_status": "BOUNDED_INTERPRETATION",
+          "confidence": "High",
+          "source_ids": [
+            "EA-USE-001",
+            "EA-USE-002"
+          ]
+        }
+      ],
+      "unknown_refs": [
+        {
+          "unknown_id": "TFII-UNK-004",
+          "scope": "all subjects",
+          "missing_evidence": "Private downstream customer integrations",
+          "effect": "Prevents complete identification of workflows that consume each record."
+        }
+      ]
+    }
+  ],
+  "matrix_summary": {
+    "claim_count": 8,
+    "proof_state_counts": {
+      "NOT_ESTABLISHED": 1,
+      "PARTIALLY_SUPPORTED": 1,
+      "SUPPORTED": 3,
+      "SUPPORTED_BOUNDED": 3
+    },
+    "evidence_reference_count": 54,
+    "unknown_reference_count": 9,
+    "record_ids_covered": [
+      "FET-TFII-001",
+      "FET-TFII-002",
+      "FET-TFII-003",
+      "FET-TFII-004",
+      "FET-TFII-005"
+    ],
+    "source_ids_covered": [
+      "EA-FUND-005",
+      "EA-FUND-006",
+      "EA-FUND-007",
+      "EA-FUND-008",
+      "EA-FUND-009",
+      "EA-FUND-013",
+      "EA-RIGHTS-003",
+      "EA-USE-001",
+      "EA-USE-002",
+      "EA-USE-003"
+    ]
+  },
+  "locator_boundary": "Complete normalized source locators and receipt files remain controlled.",
+  "release_state": "AUTHORIZED_REDUCED_CLAIM_MATRIX",
+  "public_release_permitted": true
+}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this research, cite the paper and the exact release version."
+title: "The Token Is Not the Financial Instrument"
+type: report
+version: "1.0"
+date-released: 2026-07-16
+authors:
+  - family-names: Rampai
+    given-names: Darwin
+    affiliation: Independent Research
+abstract: >-
+  A token balance does not, by itself, identify the financial instrument, the
+  record that governs ownership, the event that makes a transfer effective, or
+  the process that corrects a divergence. This bounded study tests that
+  proposition against five United States primary filings covering tokenized
+  money-market-fund and gold-fund shares.
+keywords:
+  - tokenized financial instruments
+  - financial reference integrity
+  - authoritative ownership record
+  - transfer effectiveness
+  - reconciliation
+  - tokenized funds
+  - collateral controls
+repository: "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument"
+url: "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument"
+

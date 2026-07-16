@@ -1,0 +1,16 @@
+dbf61749b67b5ffe70fbaf501621bfbbaed6e090e8fcc73f06e9a8834e1eb25c  Corrections/CORRECTIONS.md
+4e2b9198f260d03f861cd67a4a09d3d9f87b7cb9568f3f23ad526862a93a462e  Corrections/CORRECTION_REGISTER.json
+b578046ce22bc35fc45c32c84e3ff243f68257657708b2298516c0697f3b0fc6  Methodology/Franklin Downstream Financial Use.md
+2affc733a4df0bc8677d6639ad7012fb452dbc11e93fc4931bc0a57ca6415f41  Methodology/SEC EDGAR Rights Basis.md
+e4e209c7411e79d47165a75f080fa992a2d55c8c2b359957b2290d903726d0d5  Methodology/Tokenized Financial Instrument Integrity - Correction and Version Policy.md
+8d7d034fda7f874727338e0614223fa532ad2882b2977e3035a39c562953cabc  Methodology/Tokenized Financial Instrument Integrity - Record Contract.md
+003c20f97c74e7d247d6137e4bcd86962916467ea07e030a1713cf2cfffe146c  Public Evidence/Franklin BENJI Financial Control Chain - v1.0.svg
+31e417d9dd9783d37ec860754c284ca918df59593ad66d43fc6979138e754cc4  Public Evidence/Tokenized Financial Instrument Architecture Comparison - v1.0.svg
+d383f98aec81be73a14565e73afcd6c89d87851af85cd0a442aa879f762b7633  Public Evidence/Tokenized Financial Instrument Integrity - Claim Evidence Matrix - v1.0.json
+a00b47432e36e26436a327d138070bc0cb139e0fa417afa47bbb947f687553ef  Public Evidence/Tokenized Financial Instrument Integrity - Public Sample - v1.0.json
+702f906d4bf1b507cd65abffccf0bad6c25e4319b77e6ad5cc2700d506d6713e  Public Evidence/Transfer Boundary Classification - Calculation Example - v1.0.json
+654c2fdbfd5e55a66586876cc2d53b9785a57c82d59a506dc7a0bae6a6e80f05  README.md
+a6cd05ff0a00e5d3b16f35f96d459dcf0ba1110b217a78c6c58e83b158de811d  Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.docx
+defb7f4397a6f0966e4123ec55011879f661e74ddc809657420c7a524ea4898b  Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.html
+a804f3cbce2cde5fbdc600495069731fb5096a3ae126ad027319e8805a6e14e4  Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.md
+da195cd325aec0bb98701cdb07c0afca2b060b158b90466d5e7325976a17ef45  Research Paper/The Token Is Not the Financial Instrument - Darwin Rampai - 2026 - v1.0.pdf

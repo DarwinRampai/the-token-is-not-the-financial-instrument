@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Franklin and BENJI downstream financial control chain</title>
+  <desc id="desc">Black-and-white evidence diagram separating observed record and collateral facts from undisclosed reconciliation and propagation interfaces.</desc>
+  <rect width="1600" height="1000" fill="#ffffff"/>
+  <g fill="#000000" font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="82" font-size="37" font-weight="700">FRANKLIN / BENJI: WHERE THE RECORD BECOMES A FINANCIAL CONTROL</text>
+    <text x="80" y="124" font-size="21">Bounded public-evidence chain. Exact fund collateral exposure is not established.</text>
+    <line x1="80" y1="153" x2="1520" y2="153" stroke="#000000" stroke-width="3"/>
+
+    <text x="80" y="205" font-size="17" font-weight="700">FILING-DEFINED RECORD ARCHITECTURE</text>
+
+    <rect x="80" y="235" width="420" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="105" y="275" font-size="17" font-weight="700">AUTHORITATIVE OWNERSHIP RECORD</text>
+    <text x="105" y="310" font-size="18">Transfer agent maintains the official</text>
+    <text x="105" y="336" font-size="18">blockchain-integrated ownership record.</text>
+    <text x="105" y="363" font-size="14">EA-FUND-005 / OBSERVATION</text>
+
+    <line x1="500" y1="306" x2="596" y2="306" stroke="#000000" stroke-width="3"/>
+    <polygon points="596,306 578,296 578,316" fill="#000000"/>
+    <text x="515" y="287" font-size="14">processes</text>
+
+    <rect x="600" y="235" width="420" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="625" y="275" font-size="17" font-weight="700">TRANSFER-EFFECTIVE EVENT</text>
+    <text x="625" y="310" font-size="18">Complete upon confirmation on the relevant</text>
+    <text x="625" y="336" font-size="18">approved blockchain after processing.</text>
+    <text x="625" y="363" font-size="14">EA-FUND-005 / OBSERVATION</text>
+
+    <line x1="1020" y1="306" x2="1116" y2="306" stroke="#000000" stroke-width="3"/>
+    <polygon points="1116,306 1098,296 1098,316" fill="#000000"/>
+    <text x="1033" y="287" font-size="14">supports</text>
+
+    <rect x="1120" y="235" width="400" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="1145" y="275" font-size="17" font-weight="700">REPORTED P2P ACTIVITY</text>
+    <text x="1145" y="310" font-size="18">More than USD 211 million cumulative</text>
+    <text x="1145" y="336" font-size="18">BENJI transfers through 31 March 2026.</text>
+    <text x="1145" y="363" font-size="14">EA-USE-001 / ISSUER-REPORTED</text>
+
+    <text x="80" y="453" font-size="17" font-weight="700">DISCLOSED COLLATERAL WORKFLOW</text>
+
+    <rect x="80" y="482" width="420" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="105" y="522" font-size="17" font-weight="700">BENJI-ISSUED FUND SHARES</text>
+    <text x="105" y="557" font-size="18">Eligible institutional clients can use</text>
+    <text x="105" y="583" font-size="18">tokenized money-market shares as collateral.</text>
+    <text x="105" y="610" font-size="14">EA-USE-002 / PLATFORM LEVEL</text>
+
+    <line x1="500" y1="553" x2="596" y2="553" stroke="#000000" stroke-width="3"/>
+    <polygon points="596,553 578,543 578,563" fill="#000000"/>
+    <text x="515" y="534" font-size="14">held in</text>
+
+    <rect x="600" y="482" width="420" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="625" y="522" font-size="17" font-weight="700">CEFFU-SUPPORTED CUSTODY</text>
+    <text x="625" y="557" font-size="18">Eligible assets remain in regulated</text>
+    <text x="625" y="583" font-size="18">off-exchange custody.</text>
+    <text x="625" y="610" font-size="14">EA-USE-002 / OBSERVATION</text>
+
+    <line x1="1020" y1="553" x2="1116" y2="553" stroke="#000000" stroke-width="3"/>
+    <polygon points="1116,553 1098,543 1098,563" fill="#000000"/>
+    <text x="1030" y="534" font-size="14">mirrored</text>
+
+    <rect x="1120" y="482" width="400" height="142" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="1145" y="522" font-size="17" font-weight="700">BINANCE TRADING VALUE</text>
+    <text x="1145" y="557" font-size="18">Collateral value is mirrored in the</text>
+    <text x="1145" y="583" font-size="18">institutional trading environment.</text>
+    <text x="1145" y="610" font-size="14">EA-USE-002 / OBSERVATION</text>
+
+    <text x="80" y="700" font-size="17" font-weight="700">UNDISCLOSED CONTROL INTERFACES</text>
+
+    <rect x="80" y="730" width="680" height="150" fill="#ffffff" stroke="#000000" stroke-width="3" stroke-dasharray="12 9"/>
+    <text x="105" y="770" font-size="17" font-weight="700">RECORD-TO-CUSTODY RECONCILIATION</text>
+    <text x="105" y="805" font-size="18">Eligibility, identity, position, freeze, correction and</text>
+    <text x="105" y="831" font-size="18">release synchronization are not publicly disclosed.</text>
+    <text x="105" y="859" font-size="14">UNKNOWN — NOT INFERRED AS FAILURE</text>
+
+    <rect x="840" y="730" width="680" height="150" fill="#ffffff" stroke="#000000" stroke-width="3" stroke-dasharray="12 9"/>
+    <text x="865" y="770" font-size="17" font-weight="700">CUSTODY-TO-COLLATERAL PROPAGATION</text>
+    <text x="865" y="805" font-size="18">Valuation source, haircut, update clock, stale-state logic,</text>
+    <text x="865" y="831" font-size="18">default and correction propagation are not disclosed.</text>
+    <text x="865" y="859" font-size="14">UNKNOWN — EXACT EXPOSURE NOT ESTABLISHED</text>
+
+    <line x1="80" y1="928" x2="1520" y2="928" stroke="#000000" stroke-width="2"/>
+    <rect x="80" y="949" width="20" height="20" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+    <text x="113" y="965" font-size="15">Observed or bounded public evidence</text>
+    <rect x="440" y="949" width="20" height="20" fill="#ffffff" stroke="#000000" stroke-width="3" stroke-dasharray="6 4"/>
+    <text x="473" y="965" font-size="15">Publicly undisclosed interface / Unknown</text>
+    <text x="1520" y="965" font-size="14" text-anchor="end">Public evidence figure · Version 1.0 · 16 July 2026</text>
+  </g>
+</svg>
