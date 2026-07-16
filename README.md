@@ -28,10 +28,12 @@ transfer model without preserving source-native authority and timing.
 
 ## Technical Contributions
 
-The 16 July 2026 technical contribution applies the public TFII records to two
+The 16 July 2026 technical contribution applies the public TFII records to three
 production questions:
 
 - **FINOS CDM conformance:** 17 requirements tested; overall result `PARTIAL`.
+- **CDM plus TFII Record Integrity Profile:** all 17 representability
+  requirements pass across five public records without inferring private facts.
 - **Tokenized-fund collateral admission:** five instruments held for missing
   program evidence; zero CDM eligibility queries run; result `UNKNOWN`.
 

@@ -1,0 +1,1239 @@
+{
+  "artifact": "TFII_CDM_Record_Integrity_Profile_001",
+  "version": "1.0.0",
+  "as_of": "2026-07-16",
+  "target_cdm_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+  "source_sample_sha256": "a00b47432e36e26436a327d138070bc0cb139e0fa417afa47bbb947f687553ef",
+  "profile_rule": "Native CDM mechanics are retained. TFII profile fields preserve financial-record authority, evidence state, Unknowns, rights, coverage and the fail-closed precondition before collateral eligibility is queried.",
+  "requirements": [
+    {
+      "requirement_id": "TFII-CDM-001",
+      "tfii_field": "financial_object",
+      "native_cdm_status": "PASS",
+      "profile_field": "financial_object.security",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-002",
+      "tfii_field": "record_keeper",
+      "native_cdm_status": "PASS",
+      "profile_field": "record_integrity.record_keeper",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-003",
+      "tfii_field": "transfer_flow",
+      "native_cdm_status": "PASS",
+      "profile_field": "cdm_native.TransferBase",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-004",
+      "tfii_field": "transfer_status",
+      "native_cdm_status": "PASS",
+      "profile_field": "cdm_native.TransferStatusEnum",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-005",
+      "tfii_field": "valuation_clock",
+      "native_cdm_status": "PARTIAL",
+      "profile_field": "record_integrity.valuation_authority",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-006",
+      "tfii_field": "correction_lineage",
+      "native_cdm_status": "PARTIAL",
+      "profile_field": "record_integrity.correction_lineage",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-007",
+      "tfii_field": "collateral_schedule",
+      "native_cdm_status": "PASS",
+      "profile_field": "cdm_native.EligibleCollateralSpecification",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-008",
+      "tfii_field": "authoritative_record",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.authoritative_record",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-009",
+      "tfii_field": "chain_role",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.token_role",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-010",
+      "tfii_field": "transfer_effective_event",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.ownership_effective_event",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-011",
+      "tfii_field": "correction_hierarchy",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.correction_authority",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-012",
+      "tfii_field": "reconciliation",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.reconciliation",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-013",
+      "tfii_field": "wallet_eligibility",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.wallet_eligibility",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-014",
+      "tfii_field": "evidence_metadata_and_unknowns",
+      "native_cdm_status": "FAIL",
+      "profile_field": "evidence_assertions",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-015",
+      "tfii_field": "rights_state",
+      "native_cdm_status": "FAIL",
+      "profile_field": "record_integrity.rights_state",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-016",
+      "tfii_field": "coverage_scope_and_freshness",
+      "native_cdm_status": "FAIL",
+      "profile_field": "coverage",
+      "combined_status": "PASS"
+    },
+    {
+      "requirement_id": "TFII-CDM-017",
+      "tfii_field": "integrity_gated_collateral_eligibility",
+      "native_cdm_status": "PARTIAL",
+      "profile_field": "collateral_gate",
+      "combined_status": "PASS"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "FET-TFII-001",
+      "instrument_name": "Franklin OnChain U.S. Government Money Fund",
+      "architecture_class": "TRANSFER_AGENT_BLOCKCHAIN_INTEGRATED_OFFICIAL_RECORD",
+      "financial_object": {
+        "cdm_asset_class": "Security",
+        "security_type": "FundShare",
+        "source_record_id": "FET-TFII-001"
+      },
+      "record_integrity": {
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named transfer-agent entity remains to be extracted."
+        },
+        "authoritative_record": {
+          "value": "Transfer-agent-maintained official ownership record across approved blockchain networks.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "The receipt binds the filing's stated official-record architecture; legal effect is outside scope."
+        },
+        "token_role": {
+          "value": "Integrated component of the official transfer-agent record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Approved-network treatment may differ by network and filing version."
+        },
+        "ownership_effective_event": {
+          "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "This timing is filing-specific and must not be generalized to other tokenized shares."
+        },
+        "valuation_authority": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "The collateral workflow's accepted valuation authority is not public"
+        },
+        "correction_authority": {
+          "value": "Transfer agent has correction control over erroneous or unauthorized blockchain-recorded activity.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Exact correction mechanics and downstream propagation remain incomplete."
+        },
+        "correction_lineage": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "No live correction event or downstream propagation receipt is in the public sample"
+        },
+        "reconciliation": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Private reconciliation workpapers and exception state are unavailable"
+        },
+        "wallet_eligibility": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Receiver-specific wallet and holder eligibility are unavailable"
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-005",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "evidence_assertions": {
+        "authoritative_record": {
+          "value": "Transfer-agent-maintained official ownership record across approved blockchain networks.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "The receipt binds the filing's stated official-record architecture; legal effect is outside scope."
+        },
+        "chain_role": {
+          "value": "Integrated component of the official transfer-agent record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Approved-network treatment may differ by network and filing version."
+        },
+        "transfer_effective_event": {
+          "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "This timing is filing-specific and must not be generalized to other tokenized shares."
+        },
+        "processing_calendar": {
+          "value": "Peer-to-peer transfers may complete at any time on any day. Effective on or about 18 May 2026, a same-day purchase or sale order must be received and accepted before 2:00 p.m. Pacific time, subject to earlier-close conditions.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005",
+            "EA-FUND-010"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "The receipt preserves separate peer-to-peer transfer, purchase, sale, and early-close boundaries."
+        },
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named transfer-agent entity remains to be extracted."
+        },
+        "correction_hierarchy": {
+          "value": "Transfer agent has correction control over erroneous or unauthorized blockchain-recorded activity.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-005"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Exact correction mechanics and downstream propagation remain incomplete."
+        },
+        "reproducibility_state": {
+          "value": "Partial: the base filing, intervening filing chain, admitted April 2026 amendment, and normalized receipts are available, but private operational evidence remains unavailable.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-005",
+            "EA-FUND-010",
+            "EA-FUND-011"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-withheld",
+          "confidence": "Medium",
+          "notes": "Receipt-backed filing history is reproducible; private records remain explicitly outside the claim."
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-005",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "coverage": {
+        "observation_boundary": "2026-07-16",
+        "source_scope": "Frozen TFII v1.0 public filing sample",
+        "freshness_state": "POINT_IN_TIME_ONLY",
+        "unknowns": [
+          "reconciliation workpapers",
+          "collateral-program fund eligibility, balances, haircuts, and client exposures",
+          "issuer endorsement and non-EDGAR downstream-data rights"
+        ]
+      },
+      "collateral_gate": {
+        "architecture_integrity_state": "PARTIAL",
+        "program_evidence_state": "UNKNOWN",
+        "missing_program_fields": [
+          "governing eligible-collateral schedule",
+          "receiver acceptance record",
+          "live position, ownership, control and encumbrance state",
+          "accepted valuation source and decision-boundary timestamp",
+          "haircut, margin percentage and concentration limits",
+          "custody and settlement configuration",
+          "wallet and holder eligibility controls",
+          "default access and liquidation procedure"
+        ],
+        "cdm_eligibility_query_permitted": false,
+        "determination": "UNKNOWN"
+      }
+    },
+    {
+      "record_id": "FET-TFII-002",
+      "instrument_name": "JPMorgan OnChain Liquidity-Token Money Market Fund",
+      "architecture_class": "BLOCKCHAIN_INSTRUCTION_OFFCHAIN_AUTHORITATIVE_REGISTER",
+      "financial_object": {
+        "cdm_asset_class": "Security",
+        "security_type": "FundShare",
+        "source_record_id": "FET-TFII-002"
+      },
+      "record_integrity": {
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named entity remains to be extracted."
+        },
+        "authoritative_record": {
+          "value": "Offchain Investor Register maintained by the transfer agent.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Registered ownership is distinguished from token-transfer instruction."
+        },
+        "token_role": {
+          "value": "Instruction channel for a requested transfer, not by itself the final ownership register.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Exact supported network and token mechanics remain to be normalized."
+        },
+        "ownership_effective_event": {
+          "value": "Transfer agent update to the offchain Investor Register.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Block inclusion alone is not treated as the ownership-effective event."
+        },
+        "valuation_authority": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "The collateral workflow's accepted valuation authority is not public"
+        },
+        "correction_authority": {
+          "value": "The Investor Register controls; subsequent blockchain transactions correct token balances after a conflict or dispute resolution.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "confidence": "High",
+          "notes": "Downstream propagation after reversal remains unknown."
+        },
+        "correction_lineage": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "No live correction event or downstream propagation receipt is in the public sample"
+        },
+        "reconciliation": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Private reconciliation workpapers and exception state are unavailable"
+        },
+        "wallet_eligibility": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Receiver-specific wallet and holder eligibility are unavailable"
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-006",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "evidence_assertions": {
+        "authoritative_record": {
+          "value": "Offchain Investor Register maintained by the transfer agent.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Registered ownership is distinguished from token-transfer instruction."
+        },
+        "chain_role": {
+          "value": "Instruction channel for a requested transfer, not by itself the final ownership register.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Exact supported network and token mechanics remain to be normalized."
+        },
+        "transfer_effective_event": {
+          "value": "Transfer agent update to the offchain Investor Register.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "Block inclusion alone is not treated as the ownership-effective event."
+        },
+        "processing_calendar": {
+          "value": "A token transfer received before 9:00 p.m. ET on a business day can enter that day's Investor Register update; a later transfer waits for the following business-day update.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "High",
+          "notes": "The filing preserves separate receipt time, register-update time, and ownership-effective time."
+        },
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named entity remains to be extracted."
+        },
+        "correction_hierarchy": {
+          "value": "The Investor Register controls; subsequent blockchain transactions correct token balances after a conflict or dispute resolution.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "confidence": "High",
+          "notes": "Downstream propagation after reversal remains unknown."
+        },
+        "reproducibility_state": {
+          "value": "Partial: the primary filing and normalized receipt are available, but field-specific excerpts and private operational evidence remain incomplete.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-006"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-withheld",
+          "confidence": "Medium",
+          "notes": "Receipt-backed fields are reproducible; remaining bounded fields require additional extraction."
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-006",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "coverage": {
+        "observation_boundary": "2026-07-16",
+        "source_scope": "Frozen TFII v1.0 public filing sample",
+        "freshness_state": "POINT_IN_TIME_ONLY",
+        "unknowns": [
+          "reconciliation workpapers",
+          "named stablecoin issuers and live reserve allocations",
+          "downstream financial dependency and balances",
+          "issuer endorsement and non-EDGAR downstream-data rights"
+        ]
+      },
+      "collateral_gate": {
+        "architecture_integrity_state": "PARTIAL",
+        "program_evidence_state": "UNKNOWN",
+        "missing_program_fields": [
+          "governing eligible-collateral schedule",
+          "receiver acceptance record",
+          "live position, ownership, control and encumbrance state",
+          "accepted valuation source and decision-boundary timestamp",
+          "haircut, margin percentage and concentration limits",
+          "custody and settlement configuration",
+          "wallet and holder eligibility controls",
+          "default access and liquidation procedure"
+        ],
+        "cdm_eligibility_query_permitted": false,
+        "determination": "UNKNOWN"
+      }
+    },
+    {
+      "record_id": "FET-TFII-003",
+      "instrument_name": "Superstate USTB Money Market Fund",
+      "architecture_class": "UNIFIED_TRANSFER_AGENT_RECORD_WITH_BLOCKCHAIN_COMPONENTS",
+      "financial_object": {
+        "cdm_asset_class": "Security",
+        "security_type": "FundShare",
+        "source_record_id": "FET-TFII-003"
+      },
+      "record_integrity": {
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named entity remains to be extracted."
+        },
+        "authoritative_record": {
+          "value": "Official unified ownership record maintained under transfer-agent control.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Network-specific implementation details remain outside the bounded filing record."
+        },
+        "token_role": {
+          "value": "Designated public-blockchain component of a unified official record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Not treated as an unrestricted standalone ledger."
+        },
+        "ownership_effective_event": {
+          "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "This timing is filing-specific and must not be generalized."
+        },
+        "valuation_authority": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "The collateral workflow's accepted valuation authority is not public"
+        },
+        "correction_authority": {
+          "value": "The transfer agent controls the integrated record and can append a corrective instruction to a later block for an erroneous or unauthorized blockchain transaction.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "High",
+          "notes": "Exact downstream propagation remains unknown."
+        },
+        "correction_lineage": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "No live correction event or downstream propagation receipt is in the public sample"
+        },
+        "reconciliation": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Private reconciliation workpapers and exception state are unavailable"
+        },
+        "wallet_eligibility": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Receiver-specific wallet and holder eligibility are unavailable"
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-007",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "evidence_assertions": {
+        "authoritative_record": {
+          "value": "Official unified ownership record maintained under transfer-agent control.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Network-specific implementation details remain outside the bounded filing record."
+        },
+        "chain_role": {
+          "value": "Designated public-blockchain component of a unified official record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Not treated as an unrestricted standalone ledger."
+        },
+        "transfer_effective_event": {
+          "value": "Transaction confirmation on the relevant approved blockchain after transfer-agent processing.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "This timing is filing-specific and must not be generalized."
+        },
+        "processing_calendar": {
+          "value": "Peer-to-peer tokenized-share transfers may complete at any time on any day, including outside normal business hours.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "Purchase and redemption maintenance closures remain separate."
+        },
+        "record_keeper": {
+          "value": "Transfer agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Named entity remains to be extracted."
+        },
+        "correction_hierarchy": {
+          "value": "The transfer agent controls the integrated record and can append a corrective instruction to a later block for an erroneous or unauthorized blockchain transaction.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "High",
+          "notes": "Exact downstream propagation remains unknown."
+        },
+        "reproducibility_state": {
+          "value": "Partial: the primary filing and normalized receipt are available, but field-specific excerpts and private operational evidence remain incomplete.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-007"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-withheld",
+          "confidence": "Medium",
+          "notes": "Receipt-backed fields are reproducible; remaining bounded fields require additional extraction."
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-007",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "coverage": {
+        "observation_boundary": "2026-07-16",
+        "source_scope": "Frozen TFII v1.0 public filing sample",
+        "freshness_state": "POINT_IN_TIME_ONLY",
+        "unknowns": [
+          "exact share class",
+          "private reconciliation exceptions",
+          "downstream financial dependencies",
+          "issuer endorsement and non-EDGAR downstream-data rights"
+        ]
+      },
+      "collateral_gate": {
+        "architecture_integrity_state": "PARTIAL",
+        "program_evidence_state": "UNKNOWN",
+        "missing_program_fields": [
+          "governing eligible-collateral schedule",
+          "receiver acceptance record",
+          "live position, ownership, control and encumbrance state",
+          "accepted valuation source and decision-boundary timestamp",
+          "haircut, margin percentage and concentration limits",
+          "custody and settlement configuration",
+          "wallet and holder eligibility controls",
+          "default access and liquidation procedure"
+        ],
+        "cdm_eligibility_query_permitted": false,
+        "determination": "UNKNOWN"
+      }
+    },
+    {
+      "record_id": "FET-TFII-004",
+      "instrument_name": "Invesco Stablecoin Reserves Onchain Fund",
+      "architecture_class": "DESIGNATED_BLOCKCHAIN_AND_OFFCHAIN_IDENTITY_REGISTER_JOINT_OFFICIAL_RECORD",
+      "financial_object": {
+        "cdm_asset_class": "Security",
+        "security_type": "FundShare",
+        "source_record_id": "FET-TFII-004"
+      },
+      "record_integrity": {
+        "record_keeper": {
+          "value": "Invesco Investment Services, Inc. is the transfer agent; Superstate Services LLC is the sub-transfer agent maintaining the blockchain-integrated ownership record under its oversight.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "confidence": "High",
+          "notes": "The transfer-agent and sub-transfer-agent roles are filing-specific."
+        },
+        "authoritative_record": {
+          "value": "Designated blockchain records together with an offchain identity register constitute the official shareholder register, absent technical failure.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "The technical-failure exception remains part of the observed filing boundary."
+        },
+        "token_role": {
+          "value": "Designated record on which ownership and transfer are authenticated and recorded, subject to transfer-agent controls.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Designated network details remain to be extracted."
+        },
+        "ownership_effective_event": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-6",
+          "confidence": "Unknown",
+          "notes": "The filing describes blockchain transaction requests and a joint official register but does not identify the exact event that completes a transfer."
+        },
+        "valuation_authority": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "The collateral workflow's accepted valuation authority is not public"
+        },
+        "correction_authority": {
+          "value": "Superstate under IIS oversight can maintain the allowlist and reject or suspend transfers; the transfer agent may agree to correct a fund-share transaction, but blockchain-to-register correction propagation is not stated.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-7",
+          "confidence": "Medium",
+          "notes": "Definitive conflict hierarchy remains to be extracted."
+        },
+        "correction_lineage": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "No live correction event or downstream propagation receipt is in the public sample"
+        },
+        "reconciliation": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Private reconciliation workpapers and exception state are unavailable"
+        },
+        "wallet_eligibility": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Receiver-specific wallet and holder eligibility are unavailable"
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-008",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "evidence_assertions": {
+        "authoritative_record": {
+          "value": "Designated blockchain records together with an offchain identity register constitute the official shareholder register, absent technical failure.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "The technical-failure exception remains part of the observed filing boundary."
+        },
+        "chain_role": {
+          "value": "Designated record on which ownership and transfer are authenticated and recorded, subject to transfer-agent controls.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "Designated network details remain to be extracted."
+        },
+        "transfer_effective_event": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-6",
+          "confidence": "Unknown",
+          "notes": "The filing describes blockchain transaction requests and a joint official register but does not identify the exact event that completes a transfer."
+        },
+        "processing_calendar": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "Unknown",
+          "notes": "Purchase and redemption acceptance can be identified, but the peer-transfer processing calendar is not stated."
+        },
+        "record_keeper": {
+          "value": "Invesco Investment Services, Inc. is the transfer agent; Superstate Services LLC is the sub-transfer agent maintaining the blockchain-integrated ownership record under its oversight.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-4",
+          "confidence": "High",
+          "notes": "The transfer-agent and sub-transfer-agent roles are filing-specific."
+        },
+        "correction_hierarchy": {
+          "value": "Superstate under IIS oversight can maintain the allowlist and reject or suspend transfers; the transfer agent may agree to correct a fund-share transaction, but blockchain-to-register correction propagation is not stated.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-008"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-7",
+          "confidence": "Medium",
+          "notes": "Definitive conflict hierarchy remains to be extracted."
+        },
+        "reproducibility_state": {
+          "value": "Partial: the withdrawn prior filing, replacement filing, withdrawal request, and normalized source-status receipt are available, but effectiveness, issuance, sales, and private operational evidence remain unobserved.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-008",
+            "EA-FUND-013"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-withheld",
+          "confidence": "Medium",
+          "notes": "The source-status correction is reproducible; operational status and remaining bounded fields require additional evidence."
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-008",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "coverage": {
+        "observation_boundary": "2026-07-16",
+        "source_scope": "Frozen TFII v1.0 public filing sample",
+        "freshness_state": "POINT_IN_TIME_ONLY",
+        "unknowns": [
+          "exact share class and ticker",
+          "replacement filing effectiveness",
+          "share issuance or sales under the replacement filing",
+          "transfer-effective event",
+          "processing calendar",
+          "reconciliation procedure",
+          "exact intraday valuation timestamp",
+          "downstream financial dependencies",
+          "issuer endorsement and non-EDGAR downstream-data rights"
+        ]
+      },
+      "collateral_gate": {
+        "architecture_integrity_state": "PARTIAL",
+        "program_evidence_state": "UNKNOWN",
+        "missing_program_fields": [
+          "governing eligible-collateral schedule",
+          "receiver acceptance record",
+          "live position, ownership, control and encumbrance state",
+          "accepted valuation source and decision-boundary timestamp",
+          "haircut, margin percentage and concentration limits",
+          "custody and settlement configuration",
+          "wallet and holder eligibility controls",
+          "default access and liquidation procedure"
+        ],
+        "cdm_eligibility_query_permitted": false,
+        "determination": "UNKNOWN"
+      }
+    },
+    {
+      "record_id": "FET-TFII-005",
+      "instrument_name": "HSBC Hybrid Gold ETF",
+      "architecture_class": "OFFCHAIN_AUTHORITATIVE_REGISTER_SUPPLEMENTARY_BLOCKCHAIN",
+      "financial_object": {
+        "cdm_asset_class": "Security",
+        "security_type": "FundShare",
+        "source_record_id": "FET-TFII-005"
+      },
+      "record_integrity": {
+        "record_keeper": {
+          "value": "The Bank of New York Mellon, as Administrator and Transfer Agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#filing-metadata",
+          "confidence": "High",
+          "notes": "The receipt records the named role from the filing metadata."
+        },
+        "authoritative_record": {
+          "value": "Transfer agent's offchain book, stated as definitive evidence of ownership.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "This records the filing architecture and is not an independent legal opinion."
+        },
+        "token_role": {
+          "value": "Supplementary blockchain representation reconciled to the definitive offchain record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "The blockchain is not treated as the controlling record in a conflict."
+        },
+        "ownership_effective_event": {
+          "value": "The blockchain transfer executes first; ownership is then reflected on the Transfer Agent's books and records.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "High",
+          "notes": "Blockchain execution and authoritative book-entry reflection remain distinct steps."
+        },
+        "valuation_authority": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "The collateral workflow's accepted valuation authority is not public"
+        },
+        "correction_authority": {
+          "value": "The definitive offchain transfer-agent record controls and can be used to correct the blockchain representation.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "Downstream propagation after correction remains unknown."
+        },
+        "correction_lineage": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "No live correction event or downstream propagation receipt is in the public sample"
+        },
+        "reconciliation": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Private reconciliation workpapers and exception state are unavailable"
+        },
+        "wallet_eligibility": {
+          "value": null,
+          "evidence_state": "UNKNOWN",
+          "source_ids": [],
+          "source_locator": null,
+          "confidence": "Unknown",
+          "notes": "Receiver-specific wallet and holder eligibility are unavailable"
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-009",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "evidence_assertions": {
+        "authoritative_record": {
+          "value": "Transfer agent's offchain book, stated as definitive evidence of ownership.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1",
+          "confidence": "High",
+          "notes": "This records the filing architecture and is not an independent legal opinion."
+        },
+        "chain_role": {
+          "value": "Supplementary blockchain representation reconciled to the definitive offchain record.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-2",
+          "confidence": "High",
+          "notes": "The blockchain is not treated as the controlling record in a conflict."
+        },
+        "transfer_effective_event": {
+          "value": "The blockchain transfer executes first; ownership is then reflected on the Transfer Agent's books and records.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-5",
+          "confidence": "High",
+          "notes": "Blockchain execution and authoritative book-entry reflection remain distinct steps."
+        },
+        "processing_calendar": {
+          "value": "Blockchain and offchain records are reconciled at least daily.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "Complete business-day, cutoff, and exception rules remain to be extracted."
+        },
+        "record_keeper": {
+          "value": "The Bank of New York Mellon, as Administrator and Transfer Agent",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#filing-metadata",
+          "confidence": "High",
+          "notes": "The receipt records the named role from the filing metadata."
+        },
+        "correction_hierarchy": {
+          "value": "The definitive offchain transfer-agent record controls and can be used to correct the blockchain representation.",
+          "evidence_state": "OBSERVATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-3",
+          "confidence": "High",
+          "notes": "Downstream propagation after correction remains unknown."
+        },
+        "reproducibility_state": {
+          "value": "Partial: the primary filing and normalized receipt are available, but field-specific excerpts and private operational evidence remain incomplete.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-009"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-withheld",
+          "confidence": "Medium",
+          "notes": "Receipt-backed fields are reproducible; remaining bounded fields require additional extraction."
+        },
+        "rights_state": {
+          "value": "SEC website policy permits copying and further distribution of public sec.gov information without separate SEC permission. TFII may cite, transform, display, and distribute bounded EDGAR-derived factual records with attribution and without implying SEC or issuer endorsement; private records, third-party data, and trademark use remain outside this basis.",
+          "evidence_state": "BOUNDED_INTERPRETATION",
+          "source_ids": [
+            "EA-FUND-009",
+            "EA-RIGHTS-003"
+          ],
+          "source_locator": "CONTROLLED_SOURCE_RECEIPT#locator-1 and the registered EDGAR filing receipt.",
+          "confidence": "High",
+          "notes": "This bounded source-use basis is not an issuer endorsement, trademark licence, private-data right, or jurisdiction-wide legal opinion."
+        }
+      },
+      "coverage": {
+        "observation_boundary": "2026-07-16",
+        "source_scope": "Frozen TFII v1.0 public filing sample",
+        "freshness_state": "POINT_IN_TIME_ONLY",
+        "unknowns": [
+          "private reconciliation exceptions",
+          "downstream financial dependencies",
+          "issuer endorsement and non-EDGAR downstream-data rights"
+        ]
+      },
+      "collateral_gate": {
+        "architecture_integrity_state": "PARTIAL",
+        "program_evidence_state": "UNKNOWN",
+        "missing_program_fields": [
+          "governing eligible-collateral schedule",
+          "receiver acceptance record",
+          "live position, ownership, control and encumbrance state",
+          "accepted valuation source and decision-boundary timestamp",
+          "haircut, margin percentage and concentration limits",
+          "custody and settlement configuration",
+          "wallet and holder eligibility controls",
+          "default access and liquidation procedure"
+        ],
+        "cdm_eligibility_query_permitted": false,
+        "determination": "UNKNOWN"
+      }
+    }
+  ],
+  "summary": {
+    "requirement_count": 17,
+    "native_cdm_result": "PARTIAL",
+    "combined_profile_result": "PASS",
+    "record_count": 5,
+    "records_schema_valid": 5,
+    "records_admission_ready": 0,
+    "admission_determinations_made": 0
+  },
+  "claim_boundary": {
+    "native_cdm_conformance_overridden": false,
+    "collateral_eligibility_determined": false,
+    "private_evidence_inferred": false,
+    "legal_opinion_provided": false,
+    "standard_endorsement_claimed": false
+  },
+  "validation": {
+    "json_valid": true,
+    "schema_valid": true,
+    "source_hash_verified": true,
+    "requirement_ids_unique": true,
+    "all_native_gaps_mapped": true,
+    "all_records_have_evidence_assertions": true,
+    "unknowns_preserved": true,
+    "fail_closed_gate_enforced": true
+  }
+}

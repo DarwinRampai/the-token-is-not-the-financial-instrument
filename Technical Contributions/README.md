@@ -4,7 +4,7 @@
 **Published:** 16 July 2026  
 **Source paper:** [The Token Is Not the Financial Instrument](https://doi.org/10.5281/zenodo.21399416)
 
-This directory contains two executable technical contributions.
+This directory contains three executable technical contributions.
 
 ## 1. TFII-to-FINOS CDM Conformance Test 001
 
@@ -30,7 +30,24 @@ and coverage controls.
 `FAIL` means no native typed path was found under the published test rule. It
 does not allege that CDM is defective.
 
-## 2. TFII Tokenized-Fund Collateral Admission Control 001
+## 2. TFII CDM Record Integrity Profile 001
+
+The profile adds typed, evidence-bearing fields for the nine missing native
+control areas and completes the three partial areas without changing CDM's
+native result.
+
+Result:
+
+- native CDM: **PARTIAL**;
+- CDM plus TFII record-integrity profile: **PASS**;
+- profile-valid public records: 5 of 5; and
+- private facts inferred: 0.
+
+The `PASS` is a representability result. It means the combined data contract
+can carry every required field, including explicit Unknowns. It is not a
+collateral admission decision.
+
+## 3. TFII Tokenized-Fund Collateral Admission Control 001
 
 The control applies a fail-closed integrity precheck before a FINOS CDM
 collateral eligibility query.
@@ -54,6 +71,9 @@ program-specific evidence required for a real collateral admission decision.
 - [Conformance test specification](TFII-to-FINOS-CDM-Conformance-Test-001.md)
 - [Conformance result](tfii-finos-cdm-conformance-test-001.json)
 - [Conformance JSON Schema](tfii-finos-cdm-conformance-test-001.schema.json)
+- [CDM record-integrity profile specification](TFII-CDM-Record-Integrity-Profile-001.md)
+- [CDM record-integrity profile](tfii-cdm-record-integrity-profile-001.json)
+- [CDM record-integrity profile JSON Schema](tfii-cdm-record-integrity-profile-001.schema.json)
 - [Collateral control specification](TFII-Tokenized-Fund-Collateral-Admission-Control-001.md)
 - [Collateral control result](tfii-tokenized-fund-collateral-admission-control-001.json)
 - [Collateral control JSON Schema](tfii-tokenized-fund-collateral-admission-control-001.schema.json)
@@ -72,6 +92,7 @@ Expected output:
 
 ```text
 PASS conformance test: PARTIAL
+PASS CDM plus TFII record-integrity profile: PASS
 PASS collateral admission control: UNKNOWN
 ```
 

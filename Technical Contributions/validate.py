@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import sys
 from collections import Counter
 from pathlib import Path
@@ -102,14 +103,45 @@ def validate_control() -> str:
     return control["external_determination"]
 
 
+def validate_profile() -> str:
+    schema = load("tfii-cdm-record-integrity-profile-001.schema.json")
+    profile = load("tfii-cdm-record-integrity-profile-001.json")
+    sample_path = ROOT / "fixtures" / "TFII-Public-Sample-v1.0.json"
+    errors = schema_errors(schema, profile)
+
+    source_hash = hashlib.sha256(sample_path.read_bytes()).hexdigest()
+    if profile["source_sample_sha256"] != source_hash:
+        errors.append("profile source-sample hash mismatch")
+    requirements = profile["requirements"]
+    ids = [row["requirement_id"] for row in requirements]
+    if len(ids) != 17 or len(ids) != len(set(ids)):
+        errors.append("profile must contain 17 unique requirements")
+    if any(row["combined_status"] != "PASS" for row in requirements):
+        errors.append("combined profile requirements must all PASS")
+    records = profile["records"]
+    for row in records:
+        if not row["coverage"]["unknowns"]:
+            errors.append(f"{row['record_id']}: Unknowns were not preserved")
+        gate = row["collateral_gate"]
+        if gate["cdm_eligibility_query_permitted"] or gate["determination"] != "UNKNOWN":
+            errors.append(f"{row['record_id']}: profile did not fail closed")
+    if profile["summary"]["combined_profile_result"] != "PASS":
+        errors.append("combined profile result must be PASS")
+    if errors:
+        raise ValueError("; ".join(errors))
+    return profile["summary"]["combined_profile_result"]
+
+
 def main() -> int:
     try:
         conformance = validate_conformance()
+        profile = validate_profile()
         control = validate_control()
     except Exception as exc:
         print(f"FAIL {exc}", file=sys.stderr)
         return 1
     print(f"PASS conformance test: {conformance}")
+    print(f"PASS CDM plus TFII record-integrity profile: {profile}")
     print(f"PASS collateral admission control: {control}")
     return 0
 
