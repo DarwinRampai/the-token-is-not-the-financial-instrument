@@ -33,6 +33,20 @@ control, reconciliation, valuation, haircut, custody, and default-access
 evidence was unavailable. UNKNOWN is not a finding that an instrument is
 unsafe or ineligible.
 
+## Apply the Control to Production
+
+The public record proves the control and its bounded execution. A production
+owner can commission the same control for one named instrument, one named
+collateral workflow and one fixed observation boundary.
+
+- result: `PASS`, `PARTIAL`, `FAIL` or `UNKNOWN`;
+- fixed fee: USD 3,000 prepaid;
+- delivery target: three business days after payment and complete authorized
+  inputs; and
+- no unpaid production pilot.
+
+[Open the production-inspection scope and exact intake instructions](PRODUCTION_INSPECTION.md).
+
 ## Foundational Paper
 
 *The Token Is Not the Financial Instrument: Five Tokenized Funds, Five Record
@@ -54,6 +68,7 @@ transfer model without preserving source-native authority and timing.
 - [Web-readable paper](docs/paper.html)
 - [Complete bounded public evidence package](The_Token_Is_Not_the_Financial_Instrument_v1.0_Public_Evidence_Package.zip)
 - [TFII technical contributions](Technical%20Contributions/README.md)
+- [FINOS issue 4956 five-minute agenda brief](Technical%20Contributions/FINOS-CDM-Issue-4956-Agenda-Decision-Brief.md)
 - [Release manifest](release/v1.0/RELEASE%20MANIFEST.json)
 - [SHA-256 checksums](release/v1.0/SHA256SUMS.txt)
 
