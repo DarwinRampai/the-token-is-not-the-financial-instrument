@@ -81,6 +81,7 @@ program-specific evidence required for a real collateral admission decision.
 
 ## Contents
 
+- [FINOS issue 4956 five-minute agenda decision brief](FINOS-CDM-Issue-4956-Agenda-Decision-Brief.md)
 - [Conformance test specification](TFII-to-FINOS-CDM-Conformance-Test-001.md)
 - [Conformance result](tfii-finos-cdm-conformance-test-001.json)
 - [Conformance JSON Schema](tfii-finos-cdm-conformance-test-001.schema.json)
@@ -123,5 +124,6 @@ by FINOS, GDF, ISDA or any named issuer.
 
 A named instrument and named collateral workflow can be inspected using
 buyer-supplied or buyer-authorized program records. The controlled inspection
-is prepaid and separate from this public contribution. Contact:
-`rampaidarwin@gmail.com`.
+is USD 3,000 prepaid and separate from this public contribution. Delivery is
+targeted within three business days after payment and complete authorized
+inputs. [Open the exact scope and intake instructions](../PRODUCTION_INSPECTION.md).
