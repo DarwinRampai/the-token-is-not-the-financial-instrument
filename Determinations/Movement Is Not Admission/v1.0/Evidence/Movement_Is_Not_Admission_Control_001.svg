@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Movement is not admission</title>
+  <desc id="desc">A black-and-white flow diagram separating sandbox movement from the production collateral admission boundary.</desc>
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+  <g font-family="Linux Libertine G, Times New Roman, serif" fill="#000000">
+    <text x="70" y="68" font-size="38" font-weight="700">Movement is not admission</text>
+    <line x1="70" y1="88" x2="1130" y2="88" stroke="#000000" stroke-width="3"/>
+
+    <rect x="70" y="135" width="300" height="190" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+    <text x="95" y="177" font-size="22" font-weight="700">SANDBOX MOVEMENT</text>
+    <text x="95" y="216" font-size="18">Test assets</text>
+    <text x="95" y="246" font-size="18">Fixed USD 1 values</text>
+    <text x="95" y="276" font-size="18">Standard haircut</text>
+    <text x="95" y="306" font-size="18">Pre-agreed eligible list</text>
+
+    <line x1="370" y1="230" x2="505" y2="230" stroke="#000000" stroke-width="3"/>
+    <polygon points="505,230 480,215 480,245" fill="#000000"/>
+
+    <rect x="505" y="135" width="300" height="190" fill="#000000" stroke="#000000" stroke-width="3"/>
+    <text x="530" y="177" font-size="22" font-weight="700" fill="#FFFFFF">ADMISSION BOUNDARY</text>
+    <text x="530" y="216" font-size="18" fill="#FFFFFF">Ownership and control</text>
+    <text x="530" y="246" font-size="18" fill="#FFFFFF">Reconciliation and valuation</text>
+    <text x="530" y="276" font-size="18" fill="#FFFFFF">Custody and default access</text>
+    <text x="530" y="306" font-size="18" fill="#FFFFFF">Receiver-specific schedule</text>
+
+    <line x1="805" y1="230" x2="940" y2="230" stroke="#000000" stroke-width="3"/>
+    <polygon points="940,230 915,215 915,245" fill="#000000"/>
+
+    <rect x="940" y="135" width="190" height="190" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+    <text x="965" y="177" font-size="22" font-weight="700">DECISION</text>
+    <text x="965" y="224" font-size="21">PASS</text>
+    <text x="965" y="260" font-size="21">FAIL</text>
+    <text x="965" y="296" font-size="21">UNKNOWN</text>
+
+    <rect x="70" y="380" width="1060" height="150" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+    <text x="95" y="424" font-size="22" font-weight="700">PUBLIC FIVE-INSTRUMENT RESULT</text>
+    <text x="95" y="465" font-size="20">Five records reached the admission boundary. None carried the private program evidence required to cross it.</text>
+    <text x="95" y="505" font-size="25" font-weight="700">RESULT: 5 UNKNOWN / 0 ADMISSION DECISIONS MANUFACTURED</text>
+
+    <text x="70" y="582" font-size="16">Darwin Rampai, Independent Research | 16 July 2026 | Exact claim boundaries preserved</text>
+  </g>
+</svg>

@@ -1,0 +1,422 @@
+{
+  "artifact": "TFII_to_FINOS_CDM_Conformance_Test_001",
+  "version": "1.0.0",
+  "as_of": "2026-07-16",
+  "status": "CONTROLLED_VALIDATED",
+  "test_rule": "A TFII requirement passes only when the inspected FINOS CDM revision provides a native typed path that preserves the requirement's decisive financial meaning. Generic taxonomy values, free text, implementation metadata, or an unmodelled external convention do not count as native conformance.",
+  "target_standard": {
+    "name": "FINOS Common Domain Model",
+    "repository": "https://github.com/finos/common-domain-model",
+    "revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+    "revision_date": "2026-07-15",
+    "inspected_paths": [
+      "rosetta-source/src/main/rosetta/base-staticdata-asset-common-type.rosetta",
+      "rosetta-source/src/main/rosetta/base-staticdata-party-enum.rosetta",
+      "rosetta-source/src/main/rosetta/event-common-enum.rosetta",
+      "rosetta-source/src/main/rosetta/event-common-type.rosetta",
+      "rosetta-source/src/main/rosetta/event-workflow-type.rosetta",
+      "rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+      "rosetta-source/src/main/rosetta/product-collateral-type.rosetta"
+    ]
+  },
+  "tfii_source": {
+    "methodology": "docs/reference_data/FET_TFII_Record_Contract_001.md",
+    "public_sample": "output/public_repository/the-token-is-not-the-financial-instrument/release/v1.0/Public Evidence/Tokenized Financial Instrument Integrity - Public Sample - v1.0.json",
+    "public_repository": "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument",
+    "doi": "https://doi.org/10.5281/zenodo.21399416",
+    "record_ids": [
+      "FET-TFII-001",
+      "FET-TFII-002",
+      "FET-TFII-003",
+      "FET-TFII-004",
+      "FET-TFII-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "TFII-CDM-001",
+      "tfii_field": "financial_object",
+      "financial_question": "Can the tokenized fund share be represented as the underlying financial instrument rather than as a generic digital asset?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["Asset.Instrument.Security", "AssetBase.identifier", "AssetBase.taxonomy", "Security.fundType"],
+      "native_capability": "CDM represents a fund share as a Security within Instrument and provides typed identifiers, taxonomy and fund classification.",
+      "extension_or_control_needed": "No TFII extension is required for base instrument identity.",
+      "status": "PASS",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/base-staticdata-asset-common-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "AssetBase, Instrument choice and Security type",
+        "derivation_status": "OBSERVATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-002",
+      "tfii_field": "record_keeper",
+      "financial_question": "Can relevant transfer-agent, registrar, settlement-centre and custodian parties be identified?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["AssetBase.ancillaryPartyRole", "AssetAncillaryPartyRoleEnum.TransferAgent", "AssetAncillaryPartyRoleEnum.Registrar", "AssetAncillaryPartyRoleEnum.Custodian"],
+      "native_capability": "CDM provides typed ancillary roles for the parties that maintain or process security records.",
+      "extension_or_control_needed": "A separate TFII control is still needed to identify which party's record is authoritative.",
+      "status": "PASS",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/base-staticdata-party-enum.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "AssetAncillaryPartyRoleEnum lines defining Registrar, TransferAgent, SecuritySettlementCentre, PlaceOfDeposit and Custodian",
+        "derivation_status": "OBSERVATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-003",
+      "tfii_field": "transfer_flow",
+      "financial_question": "Can the movement of a security between parties be represented?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["TransferBase", "TransferState.transfer", "TransferBase.payerReceiver"],
+      "native_capability": "CDM provides a typed asset transfer and payer-receiver relationship.",
+      "extension_or_control_needed": "No TFII extension is required for the mechanical asset flow.",
+      "status": "PASS",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/event-common-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "TransferState and TransferBase",
+        "derivation_status": "OBSERVATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-004",
+      "tfii_field": "transfer_status",
+      "financial_question": "Can the operational state of a transfer be represented?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["TransferState.transferStatus", "TransferStatusEnum"],
+      "native_capability": "CDM distinguishes instructed, pending, disputed, settled and netted transfer states.",
+      "extension_or_control_needed": "TFII remains necessary to determine whether a settled operational transfer is also the ownership-effective event for the instrument.",
+      "status": "PASS",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/event-common-enum.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "TransferStatusEnum",
+        "derivation_status": "OBSERVATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-005",
+      "tfii_field": "valuation_clock",
+      "financial_question": "Can value, time, method, source and scope be represented without conflating valuation time with transfer time?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["Valuation.amount", "Valuation.timestamp", "Valuation.method", "Valuation.source", "Valuation.scope", "Valuation.valuationTiming"],
+      "native_capability": "CDM represents a valuation observation and its timestamp, method or source, scope and timing.",
+      "extension_or_control_needed": "CDM does not by itself identify the instrument-governing valuation calendar or prove that the supplied valuation is the authoritative one for the collateral workflow.",
+      "status": "PARTIAL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/event-common-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "Valuation type",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-006",
+      "tfii_field": "correction_lineage",
+      "financial_question": "Can a corrected workflow state retain lineage to its prior state?",
+      "materiality": "SUPPORTING",
+      "cdm_candidate_paths": ["WorkflowStep.action", "ActionEnum.Correct", "WorkflowStep.previousWorkflowStep", "Lineage.eventReference"],
+      "native_capability": "CDM can express a Correct action and preserve event or prior-workflow lineage.",
+      "extension_or_control_needed": "The modelled action does not establish who has instrument-level authority to correct ownership or whether downstream systems adopted the correction.",
+      "status": "PARTIAL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/event-workflow-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "WorkflowStep action and previousWorkflowStep, read with Lineage in event-common-type.rosetta",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-007",
+      "tfii_field": "collateral_schedule",
+      "financial_question": "Can a collateral schedule, inclusion or exclusion criteria, haircut and concentration limit be represented?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["EligibleCollateralSpecification", "EligibleCollateralCriteria", "CollateralTreatment", "CollateralValuationTreatment", "ConcentrationLimit"],
+      "native_capability": "CDM provides typed eligible-collateral criteria, inclusion or exclusion treatment, haircuts and concentration limits.",
+      "extension_or_control_needed": "The schedule still needs an integrity precondition establishing that the queried token maps to the intended financial object and governing records.",
+      "status": "PASS",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/product-collateral-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "EligibleCollateralSpecification, EligibleCollateralCriteria, CollateralTreatment and CollateralValuationTreatment",
+        "derivation_status": "OBSERVATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-008",
+      "tfii_field": "authoritative_record",
+      "financial_question": "Can the record that legally or operationally controls ownership be declared as a typed instrument property?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["AssetBase.ancillaryPartyRole"],
+      "native_capability": "CDM identifies relevant parties but the inspected revision has no native field declaring which ledger, register or book is authoritative for ownership.",
+      "extension_or_control_needed": "Add or bind a typed authoritative-record assertion with source, boundary and evidence status.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/tree/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "Repository-wide inspection of asset, party, event and collateral types; no native authoritative-record field found",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-009",
+      "tfii_field": "chain_role",
+      "financial_question": "Can the blockchain be typed as authoritative, integrated, instructive, mirrored or supplementary for a tokenized share?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["Asset.Instrument.Security", "Asset.DigitalAsset"],
+      "native_capability": "The inspected DigitalAsset type expressly excludes tokenized representations of other assets, while Security has no native token-role architecture field.",
+      "extension_or_control_needed": "Represent the token or ledger role separately from the underlying Security and bind it to the authoritative record.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/base-staticdata-asset-common-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "Asset choice, Security and DigitalAsset definitions",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-010",
+      "tfii_field": "transfer_effective_event",
+      "financial_question": "Can the instrument-specific event that makes ownership or entitlement effective be distinguished from a mechanically settled transfer?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["TransferState.transferStatus", "WorkflowStep.timestamp", "EventInstruction.effectiveDate"],
+      "native_capability": "CDM can timestamp and classify a transfer workflow, but no inspected path states which event governs official ownership for the instrument architecture.",
+      "extension_or_control_needed": "Bind an ownership-effective rule to the authoritative record, confirmation threshold and responsible party.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "GDF_ISDA_REPORT",
+        "source_uri": "https://www.gdf.io/wp-content/uploads/2026/07/6.07.26_Unlocking-Capital-with-U.S-Tokenized-Money-Market-Funds-for-Collateral-Mobility.pdf",
+        "source_revision": "2026 report accessed 2026-07-16",
+        "source_locator": "Sections 4(h) and 5: settlement finality, transfer effectiveness and record-of-ownership distinctions",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-011",
+      "tfii_field": "correction_hierarchy",
+      "financial_question": "Can the party and record with authority to correct an ownership divergence be declared?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["WorkflowStep.action", "ActionEnum.Correct", "Lineage"],
+      "native_capability": "CDM represents correction action and lineage, not the instrument-level correction authority or controlling record after divergence.",
+      "extension_or_control_needed": "Add a correction-authority and record-precedence control with downstream propagation state.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/event-workflow-type.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "WorkflowStep correction mechanics read against TFII correction-hierarchy requirement",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-012",
+      "tfii_field": "reconciliation",
+      "financial_question": "Can the comparison direction, frequency, exception state and controlling record across onchain and offchain books be represented?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": [],
+      "native_capability": "No native reconciliation contract for tokenized-fund ownership records was found in the inspected paths.",
+      "extension_or_control_needed": "Add a typed reconciliation control covering compared records, cadence, exceptions and correction direction.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "GDF_ISDA_REPORT",
+        "source_uri": "https://www.gdf.io/wp-content/uploads/2026/07/6.07.26_Unlocking-Capital-with-U.S-Tokenized-Money-Market-Funds-for-Collateral-Mobility.pdf",
+        "source_revision": "2026 report accessed 2026-07-16",
+        "source_locator": "Sections 4 and 5: digital-twin reconciliation and point-in-time alignment across token, fund entitlement and collateral records",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-013",
+      "tfii_field": "wallet_eligibility",
+      "financial_question": "Can holder, wallet, allowlist and transfer-control eligibility be represented as instrument-integrity evidence?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["EligibilityQuery"],
+      "native_capability": "The inspected collateral query covers asset and issuer characteristics, not token-holder or wallet controls.",
+      "extension_or_control_needed": "Add wallet and holder eligibility evidence before a tokenized share enters a collateral query.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "EligibilityQuery and CheckEligibilityByDetails",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-014",
+      "tfii_field": "evidence_metadata_and_unknowns",
+      "financial_question": "Can every financial assertion carry its source, locator, derivation status, confidence and explicit Unknown state?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["metadata scheme", "metadata key", "Lineage"],
+      "native_capability": "CDM metadata and lineage support identification and references, but the inspected revision does not provide TFII's field-level evidence-state contract.",
+      "extension_or_control_needed": "Bind evidence metadata and Unknowns as a separate validation layer over CDM objects.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "TFII_PUBLIC_RECORD",
+        "source_uri": "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument",
+        "source_revision": "TFII public release v1.0",
+        "source_locator": "Public Evidence/Tokenized Financial Instrument Integrity - Public Sample - v1.0.json",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-015",
+      "tfii_field": "rights_state",
+      "financial_question": "Can source and downstream permitted-use rights be kept with the financial record?",
+      "materiality": "SUPPORTING",
+      "cdm_candidate_paths": [],
+      "native_capability": "No native source-rights or permitted-use field was found in the inspected asset, event and collateral paths.",
+      "extension_or_control_needed": "Maintain rights-aware lineage outside the transaction object and fail delivery when use rights are unresolved.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "TFII_PUBLIC_RECORD",
+        "source_uri": "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument",
+        "source_revision": "TFII public release v1.0",
+        "source_locator": "TFII rights_state field and public sample claim boundary",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-016",
+      "tfii_field": "coverage_scope_and_freshness",
+      "financial_question": "Can the exact evidence universe, observation boundary, gaps and freshness be declared?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["WorkflowStep.timestamp", "EventInstruction.effectiveDate"],
+      "native_capability": "CDM carries event timing but the inspected revision does not provide a complete source-coverage and evidence-freshness manifest.",
+      "extension_or_control_needed": "Attach point-in-time coverage, source freshness, gap and version receipts to each determination.",
+      "status": "FAIL",
+      "evidence": {
+        "source_class": "TFII_PUBLIC_RECORD",
+        "source_uri": "https://github.com/DarwinRampai/the-token-is-not-the-financial-instrument",
+        "source_revision": "TFII public release v1.0",
+        "source_locator": "TFII coverage_scope, reproducibility_state and Unknown schedule",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    },
+    {
+      "requirement_id": "TFII-CDM-017",
+      "tfii_field": "integrity_gated_collateral_eligibility",
+      "financial_question": "Does the native collateral eligibility function require authoritative-record, finality, reconciliation and wallet-control evidence before returning eligibility?",
+      "materiality": "CORE",
+      "cdm_candidate_paths": ["EligibilityQuery", "CheckEligibilityByDetails", "CheckEligibilityResult.isEligible"],
+      "native_capability": "CDM can return a boolean collateral-criteria match from asset and issuer inputs, but the inspected query does not require TFII record-integrity fields.",
+      "extension_or_control_needed": "Run a fail-closed TFII integrity precheck before invoking the CDM eligibility query and preserve the precheck receipt with the result.",
+      "status": "PARTIAL",
+      "evidence": {
+        "source_class": "FINOS_CDM_SOURCE",
+        "source_uri": "https://github.com/finos/common-domain-model/blob/a6ffe777bc12ef3d289579cb3a86d1cbffea63d2/rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+        "source_revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+        "source_locator": "EligibilityQuery, CheckEligibilityByDetails and CheckEligibilityResult",
+        "derivation_status": "BOUNDED_INTERPRETATION",
+        "confidence": "High"
+      }
+    }
+  ],
+  "test_vectors": [
+    {
+      "record_id": "FET-TFII-001",
+      "instrument_name": "Franklin OnChain U.S. Government Money Fund",
+      "architecture_class": "TRANSFER_AGENT_BLOCKCHAIN_INTEGRATED_OFFICIAL_RECORD",
+      "transfer_boundary_class": "BLOCKCHAIN_CONFIRMATION",
+      "source_evidence_state": "COMPLETE",
+      "expected_distinctions": ["blockchain is integrated into the official transfer-agent record", "transfer effectiveness follows confirmation after transfer-agent processing", "transfer agent retains correction control"],
+      "failed_requirement_ids": ["TFII-CDM-008", "TFII-CDM-009", "TFII-CDM-010", "TFII-CDM-011", "TFII-CDM-012", "TFII-CDM-013", "TFII-CDM-014", "TFII-CDM-015", "TFII-CDM-016"],
+      "source_unknowns": ["private reconciliation workpapers", "program-specific collateral evidence"],
+      "result": "PARTIAL"
+    },
+    {
+      "record_id": "FET-TFII-002",
+      "instrument_name": "JPMorgan OnChain Liquidity-Token Money Market Fund",
+      "architecture_class": "BLOCKCHAIN_INSTRUCTION_OFFCHAIN_AUTHORITATIVE_REGISTER",
+      "transfer_boundary_class": "OFFCHAIN_REGISTER_UPDATE",
+      "source_evidence_state": "COMPLETE",
+      "expected_distinctions": ["blockchain movement is an instruction", "offchain investor-register update governs ownership", "offchain register controls correction"],
+      "failed_requirement_ids": ["TFII-CDM-008", "TFII-CDM-009", "TFII-CDM-010", "TFII-CDM-011", "TFII-CDM-012", "TFII-CDM-013", "TFII-CDM-014", "TFII-CDM-015", "TFII-CDM-016"],
+      "source_unknowns": ["private reconciliation workpapers", "program-specific collateral evidence"],
+      "result": "PARTIAL"
+    },
+    {
+      "record_id": "FET-TFII-003",
+      "instrument_name": "Superstate USTB Money Market Fund",
+      "architecture_class": "UNIFIED_TRANSFER_AGENT_RECORD_WITH_BLOCKCHAIN_COMPONENTS",
+      "transfer_boundary_class": "BLOCKCHAIN_CONFIRMATION",
+      "source_evidence_state": "COMPLETE",
+      "expected_distinctions": ["book-entry and blockchain components form one transfer-agent-controlled record", "blockchain confirmation follows transfer-agent processing", "correction is appended to a later block"],
+      "failed_requirement_ids": ["TFII-CDM-008", "TFII-CDM-009", "TFII-CDM-010", "TFII-CDM-011", "TFII-CDM-012", "TFII-CDM-013", "TFII-CDM-014", "TFII-CDM-015", "TFII-CDM-016"],
+      "source_unknowns": ["private reconciliation workpapers", "program-specific collateral evidence"],
+      "result": "PARTIAL"
+    },
+    {
+      "record_id": "FET-TFII-004",
+      "instrument_name": "Invesco Stablecoin Reserves Onchain Fund",
+      "architecture_class": "DESIGNATED_BLOCKCHAIN_AND_OFFCHAIN_IDENTITY_REGISTER_JOINT_OFFICIAL_RECORD",
+      "transfer_boundary_class": "UNKNOWN",
+      "source_evidence_state": "PARTIAL",
+      "expected_distinctions": ["designated blockchain and offchain identity register jointly form the official record", "transfer-effective event remains Unknown in the public evidence", "allowlisting and administrative control remain material"],
+      "failed_requirement_ids": ["TFII-CDM-008", "TFII-CDM-009", "TFII-CDM-010", "TFII-CDM-011", "TFII-CDM-012", "TFII-CDM-013", "TFII-CDM-014", "TFII-CDM-015", "TFII-CDM-016"],
+      "source_unknowns": ["transfer-effective event", "processing calendar", "private reconciliation workpapers", "program-specific collateral evidence"],
+      "result": "PARTIAL"
+    },
+    {
+      "record_id": "FET-TFII-005",
+      "instrument_name": "HSBC Hybrid Gold ETF",
+      "architecture_class": "OFFCHAIN_AUTHORITATIVE_REGISTER_SUPPLEMENTARY_BLOCKCHAIN",
+      "transfer_boundary_class": "BLOCKCHAIN_THEN_BOOK_ENTRY",
+      "source_evidence_state": "COMPLETE",
+      "expected_distinctions": ["offchain transfer-agent book is definitive", "blockchain transfer precedes transfer-agent book entry", "offchain record controls after divergence"],
+      "failed_requirement_ids": ["TFII-CDM-008", "TFII-CDM-009", "TFII-CDM-010", "TFII-CDM-011", "TFII-CDM-012", "TFII-CDM-013", "TFII-CDM-014", "TFII-CDM-015", "TFII-CDM-016"],
+      "source_unknowns": ["private reconciliation exceptions", "program-specific collateral evidence"],
+      "result": "PARTIAL"
+    }
+  ],
+  "summary": {
+    "requirement_count": 17,
+    "result_counts": {"PASS": 5, "PARTIAL": 3, "FAIL": 9, "UNKNOWN": 0},
+    "record_count": 5,
+    "overall_result": "PARTIAL",
+    "public_technical_contribution_permitted": true
+  },
+  "claim_boundary": {
+    "cdm_defect_alleged": false,
+    "legal_opinion_provided": false,
+    "collateral_eligibility_determined": false,
+    "standard_endorsement_claimed": false
+  },
+  "validation": {
+    "json_valid": true,
+    "schema_valid": true,
+    "requirement_ids_unique": true,
+    "test_vectors_match_public_sample": true,
+    "result_counts_recomputed": true,
+    "overall_result_recomputed": true,
+    "claim_boundary_passed": true
+  }
+}

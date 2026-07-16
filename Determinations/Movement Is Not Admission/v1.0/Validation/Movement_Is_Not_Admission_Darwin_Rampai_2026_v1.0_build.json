@@ -1,0 +1,15 @@
+{
+  "publication_id": "FET-DET-001",
+  "version": "1.0",
+  "status": "RELEASED",
+  "docx": "output/publications/Movement_Is_Not_Admission_v1.0/docx/Movement_Is_Not_Admission_Darwin_Rampai_2026_v1.0.docx",
+  "pdf": "output/publications/Movement_Is_Not_Admission_v1.0/pdf/Movement_Is_Not_Admission_Darwin_Rampai_2026_v1.0.pdf",
+  "html": "output/publications/Movement_Is_Not_Admission_v1.0/html/Movement_Is_Not_Admission_Darwin_Rampai_2026_v1.0.html",
+  "sha256": {
+    "docx": "f636784fa06835e9c19aeb9a462a3c27a2112b21fb8420d0a18ebe541a7f1063",
+    "pdf": "f4d92795e98bc85807eb027b5ef1803a8c0a76f53fe4fd545c404698eeac5e9f",
+    "html": "48bfa77aa4c49240f530bb43705ed5c02ea3e9156908b84611fa794ed6d88140"
+  },
+  "publication_standard": "Independent Research Publication Standard 1.3",
+  "release_authorized": true
+}

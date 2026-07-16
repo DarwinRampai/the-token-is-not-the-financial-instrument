@@ -3,10 +3,41 @@
 **Darwin Rampai, Independent Researcher**  
 **Version 1.0 | 16 July 2026**
 
-This repository is the canonical public evidence record for the research paper
+This repository is the canonical public evidence record for TFII research,
+technical determinations, executable controls, and bounded machine-readable
+evidence produced by Darwin Rampai.
+
+## Current Determination
+
+### Movement Is Not Admission
+
+The July 2026 GDF and ISDA tokenized-money-market-fund sandbox demonstrated
+collateral movement under assumed eligibility. It did not test whether a live
+tokenized fund satisfied the production admission boundary.
+
+| Control | Result |
+|---|---:|
+| Native FINOS CDM representation | PARTIAL: 5 PASS / 3 PARTIAL / 9 FAIL |
+| FINOS CDM plus TFII Record Integrity Profile | PASS: 17 / 17 |
+| Admission-control branches | PASS / FAIL / UNKNOWN executed |
+| Public tokenized-fund records | 5 UNKNOWN / 0 decisions manufactured |
+
+- [Read the web determination](docs/movement-is-not-admission.html)
+- [Open the complete version 1.0 record](Determinations/Movement%20Is%20Not%20Admission/v1.0/README.md)
+- [Download the PDF](Determinations/Movement%20Is%20Not%20Admission/v1.0/Determination/Movement_Is_Not_Admission_Darwin_Rampai_2026_v1.0.pdf)
+- [Inspect the machine-readable evidence](Determinations/Movement%20Is%20Not%20Admission/v1.0/Evidence/)
+- [Verify the file hashes](Determinations/Movement%20Is%20Not%20Admission/v1.0/SHA256SUMS.txt)
+
+Five public records remain UNKNOWN because receiver-specific ownership,
+control, reconciliation, valuation, haircut, custody, and default-access
+evidence was unavailable. UNKNOWN is not a finding that an instrument is
+unsafe or ineligible.
+
+## Foundational Paper
+
 *The Token Is Not the Financial Instrument: Five Tokenized Funds, Five Record
 Architectures, and the Control Boundary Between Blockchain Transfer and
-Financial Ownership*.
+Financial Ownership* establishes the underlying record-integrity problem.
 
 ## Supported Result
 

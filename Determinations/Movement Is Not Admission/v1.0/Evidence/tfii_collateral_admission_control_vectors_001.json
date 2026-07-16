@@ -1,0 +1,260 @@
+{
+  "artifact": "TFII_Collateral_Admission_Control_Vectors_001",
+  "version": "1.0.0",
+  "as_of": "2026-07-16",
+  "source_function": {
+    "name": "FINOS CDM CheckEligibilityByDetails / CheckCriteria parity replay",
+    "revision": "a6ffe777bc12ef3d289579cb3a86d1cbffea63d2",
+    "path": "rosetta-source/src/main/rosetta/product-collateral-func.rosetta",
+    "execution_mode": "BOUNDED_PYTHON_REFERENCE_REPLAY_NOT_GENERATED_CDM_RUNTIME"
+  },
+  "test_rule": "UNKNOWN mandatory evidence blocks the eligibility query. Complete evidence runs the bounded CDM criteria parity replay and returns PASS when at least one included criterion matches and no control requirement fails; otherwise FAIL.",
+  "vectors": [
+    {
+      "vector_id": "TFII-AC-TV-001",
+      "synthetic": true,
+      "purpose": "Complete evidence and matching eligibility criteria",
+      "requirement_states": {
+        "TFII-AC-001": "PASS",
+        "TFII-AC-002": "PASS",
+        "TFII-AC-003": "PASS",
+        "TFII-AC-004": "PASS",
+        "TFII-AC-005": "PASS",
+        "TFII-AC-006": "PASS",
+        "TFII-AC-007": "PASS",
+        "TFII-AC-008": "PASS",
+        "TFII-AC-009": "PASS",
+        "TFII-AC-010": "PASS",
+        "TFII-AC-011": "PASS",
+        "TFII-AC-012": "PASS",
+        "TFII-AC-013": "PASS",
+        "TFII-AC-014": "PASS",
+        "TFII-AC-015": "PASS",
+        "TFII-AC-016": "PASS",
+        "TFII-AC-017": "PASS",
+        "TFII-AC-018": "PASS",
+        "TFII-AC-019": "PASS",
+        "TFII-AC-020": "PASS",
+        "TFII-AC-021": "PASS",
+        "TFII-AC-022": "PASS"
+      },
+      "specification": {
+        "criteria": [
+          {
+            "all": [
+              {
+                "field": "collateral_asset_type",
+                "operation": "EQUALS",
+                "value": "Security/FundShare"
+              },
+              {
+                "field": "asset_country_of_origin",
+                "operation": "EQUALS",
+                "value": "US"
+              },
+              {
+                "field": "denominated_currency",
+                "operation": "EQUALS",
+                "value": "USD"
+              },
+              {
+                "field": "maturity_years",
+                "operation": "LTE",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "query": {
+        "maturity_years": 0,
+        "collateral_asset_type": "Security/FundShare",
+        "asset_country_of_origin": "US",
+        "denominated_currency": "USD",
+        "agency_rating": "TEST_RATING",
+        "issuer_type": "Fund",
+        "issuer_name": "Synthetic Test Issuer"
+      },
+      "output": {
+        "precheck_state": "COMPLETE",
+        "cdm_query_state": "RUN_REFERENCE_PARITY_REPLAY",
+        "is_eligible": true,
+        "matching_criteria_indexes": [
+          0
+        ],
+        "determination": "PASS"
+      }
+    },
+    {
+      "vector_id": "TFII-AC-TV-002",
+      "synthetic": true,
+      "purpose": "Complete evidence and non-matching eligibility criteria",
+      "requirement_states": {
+        "TFII-AC-001": "PASS",
+        "TFII-AC-002": "PASS",
+        "TFII-AC-003": "PASS",
+        "TFII-AC-004": "PASS",
+        "TFII-AC-005": "PASS",
+        "TFII-AC-006": "PASS",
+        "TFII-AC-007": "PASS",
+        "TFII-AC-008": "PASS",
+        "TFII-AC-009": "PASS",
+        "TFII-AC-010": "PASS",
+        "TFII-AC-011": "PASS",
+        "TFII-AC-012": "PASS",
+        "TFII-AC-013": "PASS",
+        "TFII-AC-014": "PASS",
+        "TFII-AC-015": "PASS",
+        "TFII-AC-016": "PASS",
+        "TFII-AC-017": "PASS",
+        "TFII-AC-018": "PASS",
+        "TFII-AC-019": "PASS",
+        "TFII-AC-020": "PASS",
+        "TFII-AC-021": "PASS",
+        "TFII-AC-022": "PASS"
+      },
+      "specification": {
+        "criteria": [
+          {
+            "all": [
+              {
+                "field": "collateral_asset_type",
+                "operation": "EQUALS",
+                "value": "Security/FundShare"
+              },
+              {
+                "field": "asset_country_of_origin",
+                "operation": "EQUALS",
+                "value": "US"
+              },
+              {
+                "field": "denominated_currency",
+                "operation": "EQUALS",
+                "value": "USD"
+              },
+              {
+                "field": "maturity_years",
+                "operation": "LTE",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "query": {
+        "maturity_years": 0,
+        "collateral_asset_type": "Security/FundShare",
+        "asset_country_of_origin": "US",
+        "denominated_currency": "EUR",
+        "agency_rating": "TEST_RATING",
+        "issuer_type": "Fund",
+        "issuer_name": "Synthetic Test Issuer"
+      },
+      "output": {
+        "precheck_state": "COMPLETE",
+        "cdm_query_state": "RUN_REFERENCE_PARITY_REPLAY",
+        "is_eligible": false,
+        "matching_criteria_indexes": [],
+        "determination": "FAIL"
+      }
+    },
+    {
+      "vector_id": "TFII-AC-TV-003",
+      "synthetic": true,
+      "purpose": "Missing custody, control and perfection evidence",
+      "requirement_states": {
+        "TFII-AC-001": "PASS",
+        "TFII-AC-002": "PASS",
+        "TFII-AC-003": "PASS",
+        "TFII-AC-004": "PASS",
+        "TFII-AC-005": "PASS",
+        "TFII-AC-006": "PASS",
+        "TFII-AC-007": "PASS",
+        "TFII-AC-008": "PASS",
+        "TFII-AC-009": "PASS",
+        "TFII-AC-010": "PASS",
+        "TFII-AC-011": "PASS",
+        "TFII-AC-012": "PASS",
+        "TFII-AC-013": "PASS",
+        "TFII-AC-014": "PASS",
+        "TFII-AC-015": "PASS",
+        "TFII-AC-016": "PASS",
+        "TFII-AC-017": "PASS",
+        "TFII-AC-018": "PASS",
+        "TFII-AC-019": "PASS",
+        "TFII-AC-020": "UNKNOWN",
+        "TFII-AC-021": "PASS",
+        "TFII-AC-022": "PASS"
+      },
+      "specification": {
+        "criteria": [
+          {
+            "all": [
+              {
+                "field": "collateral_asset_type",
+                "operation": "EQUALS",
+                "value": "Security/FundShare"
+              },
+              {
+                "field": "asset_country_of_origin",
+                "operation": "EQUALS",
+                "value": "US"
+              },
+              {
+                "field": "denominated_currency",
+                "operation": "EQUALS",
+                "value": "USD"
+              },
+              {
+                "field": "maturity_years",
+                "operation": "LTE",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "query": {
+        "maturity_years": 0,
+        "collateral_asset_type": "Security/FundShare",
+        "asset_country_of_origin": "US",
+        "denominated_currency": "USD",
+        "agency_rating": "TEST_RATING",
+        "issuer_type": "Fund",
+        "issuer_name": "Synthetic Test Issuer"
+      },
+      "output": {
+        "precheck_state": "HOLD_MISSING_EVIDENCE",
+        "cdm_query_state": "NOT_RUN",
+        "is_eligible": null,
+        "determination": "UNKNOWN"
+      }
+    }
+  ],
+  "summary": {
+    "vectors": 3,
+    "prechecks_complete": 2,
+    "prechecks_held": 1,
+    "eligibility_queries_run": 2,
+    "admission_decisions_made": 2,
+    "determinations": {
+      "PASS": 1,
+      "FAIL": 1,
+      "UNKNOWN": 1
+    },
+    "all_execution_branches_passed": true
+  },
+  "claim_boundary": {
+    "real_instrument_evaluated": false,
+    "generated_cdm_runtime_executed": false,
+    "legal_opinion_provided": false,
+    "production_admission_authorized": false
+  },
+  "validation": {
+    "schema_valid": true,
+    "deterministic_replay_passed": true,
+    "pass_branch_passed": true,
+    "fail_branch_passed": true,
+    "unknown_branch_passed": true
+  }
+}

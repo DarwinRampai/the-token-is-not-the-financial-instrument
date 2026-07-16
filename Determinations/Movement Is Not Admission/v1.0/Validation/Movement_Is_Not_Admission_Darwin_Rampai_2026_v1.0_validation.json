@@ -1,0 +1,182 @@
+{
+  "artifact": "FET Publication Validation",
+  "publication_id": "FET-DET-001",
+  "version": "1.0",
+  "passed": true,
+  "checks": [
+    {
+      "check": "metadata_required_fields",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "institution_identity",
+      "passed": true,
+      "detail": "Independent Research"
+    },
+    {
+      "check": "publication_id_format",
+      "passed": true,
+      "detail": "FET-DET-001"
+    },
+    {
+      "check": "abstract_word_count",
+      "passed": true,
+      "detail": "words=172"
+    },
+    {
+      "check": "keyword_count",
+      "passed": true,
+      "detail": "count=6"
+    },
+    {
+      "check": "no_placeholders",
+      "passed": true,
+      "detail": "found=[]"
+    },
+    {
+      "check": "required_sections",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "minimum_substantive_length",
+      "passed": true,
+      "detail": "words=1446"
+    },
+    {
+      "check": "no_secrets",
+      "passed": true,
+      "detail": "matches=0"
+    },
+    {
+      "check": "references_section",
+      "passed": true,
+      "detail": "# References present"
+    },
+    {
+      "check": "citation_style",
+      "passed": true,
+      "detail": "Chicago author-date, adapted for onchain evidence"
+    },
+    {
+      "check": "docx_exists",
+      "passed": true,
+      "detail": "bytes=21942"
+    },
+    {
+      "check": "docx_zip_integrity",
+      "passed": true,
+      "detail": "corrupt=None"
+    },
+    {
+      "check": "docx_required_parts",
+      "passed": true,
+      "detail": "document and styles parts present"
+    },
+    {
+      "check": "docx_core_title",
+      "passed": true,
+      "detail": "Movement Is Not Admission"
+    },
+    {
+      "check": "docx_fet_styles",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "docx_letter_geometry",
+      "passed": true,
+      "detail": "<ns0:pgSz xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" ns0:h=\"15840\" ns0:w=\"12240\" />"
+    },
+    {
+      "check": "docx_page_margins",
+      "passed": true,
+      "detail": "<ns0:pgMar xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" ns0:bottom=\"1440\" ns0:footer=\"605\" ns0:header=\"605\" ns0:left=\"1440\" ns0:right=\"1440\" ns0:top=\"1440\" />"
+    },
+    {
+      "check": "docx_distinct_first_page",
+      "passed": true,
+      "detail": "titlePg present"
+    },
+    {
+      "check": "docx_monochrome_content",
+      "passed": true,
+      "detail": "non_monochrome=[]"
+    },
+    {
+      "check": "docx_no_unreviewed_images",
+      "passed": true,
+      "detail": "media=['word/media/rId25.svg']; reviewed_visuals=['docs/publication/figures/Movement_Is_Not_Admission_Control_001.svg']"
+    },
+    {
+      "check": "pdf_exists",
+      "passed": true,
+      "detail": "bytes=230840"
+    },
+    {
+      "check": "pdf_page_count",
+      "passed": true,
+      "detail": "pages=7"
+    },
+    {
+      "check": "pdf_letter_geometry",
+      "passed": true,
+      "detail": "Page size:       612 x 792 pts"
+    },
+    {
+      "check": "pdf_rasterization",
+      "passed": true,
+      "detail": "rendered"
+    },
+    {
+      "check": "pdf_no_color_channels",
+      "passed": true,
+      "detail": "all raster channels neutral"
+    },
+    {
+      "check": "html_exists",
+      "passed": true,
+      "detail": "bytes=22373"
+    },
+    {
+      "check": "html_title",
+      "passed": true,
+      "detail": "Movement Is Not Admission"
+    },
+    {
+      "check": "html_document",
+      "passed": true,
+      "detail": "standalone document"
+    },
+    {
+      "check": "html_no_duplicate_title_block",
+      "passed": true,
+      "detail": "no generated title block before controlled cover"
+    },
+    {
+      "check": "html_monochrome",
+      "passed": true,
+      "detail": "non_monochrome=[]"
+    },
+    {
+      "check": "html_embedded_visuals",
+      "passed": true,
+      "detail": "embedded SVG resources"
+    },
+    {
+      "check": "html_no_secrets",
+      "passed": true,
+      "detail": "no secret patterns"
+    }
+  ],
+  "sha256": {
+    "source": "f61888532f44d868e9367ab1d8e00fa47b861d435f4e0f94d24862e3a3dead48",
+    "metadata": "aeab04c22623678a0712abd9d71ad2c89bb5362c0aedbd41232b366327666478",
+    "docx": "f636784fa06835e9c19aeb9a462a3c27a2112b21fb8420d0a18ebe541a7f1063",
+    "pdf": "f4d92795e98bc85807eb027b5ef1803a8c0a76f53fe4fd545c404698eeac5e9f",
+    "html": "48bfa77aa4c49240f530bb43705ed5c02ea3e9156908b84611fa794ed6d88140"
+  },
+  "visual_review_required": true,
+  "release_authorized": false
+}
